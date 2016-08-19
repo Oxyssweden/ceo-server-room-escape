@@ -1,7 +1,7 @@
 {
 	"knife": {
 		"id": "knife",
-		"sprite": "../../images/archive_open_knife.svg",
+		"sprite": "/images/archive_open_knife.svg",
 		"actions": {
 			"view": "msg('A knife? Who put a knife here? Why?!')",
 			"pick_up": {
@@ -10,9 +10,9 @@
 				"false": "msg('')"
 			},
 			"use": {
-				"self":,
-				"broom": "addToInventory('broomandknife'), removeFromInventory('knife')",
-			},
+				"self":"",
+				"broom": "addToInventory('broomandknife'), removeFromInventory('knife')"
+			}
 		}
 	}
 }

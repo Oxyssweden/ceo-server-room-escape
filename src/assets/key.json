@@ -1,7 +1,7 @@
 {
 	"key": {
 		"id": "key",
-		"sprite": "../../images/key.svg",
+		"sprite": "/images/key.svg",
 		"actions": {
 			"view": "msg('A small key, but what does it open?')",
 			"pick_up": {
@@ -10,9 +10,9 @@
 				"false": "msg('')"
 			},
 			"use": {
-				"self":,
-				"cabinet": "openCabinet()",
-			},
+				"self":"",
+				"cabinet": "openCabinet()"
+			}
 		}
 	}
 }

@@ -1,17 +1,15 @@
 {
-	"broom": {
-		"id": "broom",
-		"sprite": "../../images/broomstick.svg",
-		"actions": {
-			"view": "msg('It's a broom)",
-			"pick_up": {
-				"_var": /* Check if asset.hook is in the inventory */,
-				"true": ["addToInventory()", "removeFromInventory()"],
-				"false": "msg('This is no time for cleaning!')"
-			},
-			"use": {
-				"self":,
-			},
-		}
-	}
+  "id": "broom",
+  "sprite": "/images/broomstick.svg",
+  "actions": {
+    "view": "msg('It's a broom)",
+    "pick_up": {
+      "_var": "",
+      "true": ["addToInventory()", "removeFromInventory()"],
+      "false": "msg('This is no time for cleaning!')"
+    },
+    "use": {
+      "self":""
+    }
+  }
 }

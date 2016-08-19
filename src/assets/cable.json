@@ -1,7 +1,7 @@
 {
 	"cable": {
 		"id": "cable",
-		"sprite": "../../images/cable.svg",
+		"sprite": "/images/cable.svg",
 		"actions": {
 			"view": "msg('A CAT6 cable.')",
 			"pick_up": {
@@ -9,9 +9,9 @@
 				"false": "msg('')"
 			},
 			"use": {
-				"self":,
-				"broomandknife": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"],
-			},
+				"self":"",
+				"broomandknife": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"]
+			}
 		}
 	}
 }

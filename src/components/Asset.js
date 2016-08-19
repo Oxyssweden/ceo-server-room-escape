@@ -4,17 +4,11 @@ const Asset = React.createClass({
 
 	getInitialState: function() {
 		var id = this.props.assetId;
-		var asset = require('!json../assets/'+id);
-	};
-
-	componentWillMount: function(){
-	
+		return require('json!../assets/'+id);
 	},
-
   render: function(){
     return (<div className="asset">
-    	{this.props.name}
-    	{this.props.sprite}
+    	<img src={this.state.sprite}/>
     </div>);
   }
 });

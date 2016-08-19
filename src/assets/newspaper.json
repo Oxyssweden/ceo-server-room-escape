@@ -1,13 +1,11 @@
 {
-	"cabinet": {
-		"id": "cabinet",
-		"sprite": "../../images/newspaper.svg",
-		"actions": {
-			"view": "msg('Who's been reading \"Drones Weekly\" in here?')",
-			"pick_up": "addToInventory(newspaper)",
-			"use": {
-				"self":,
-			},
+	"id": "newspaper",
+	"sprite": "/images/newspaper.svg",
+	"actions": {
+		"view": "msg('Who's been reading \"Drones Weekly\" in here?')",
+		"pick_up": "addToInventory(newspaper)",
+		"use": {
+			"self":""
 		}
 	}
 }
