@@ -2,20 +2,13 @@ import React from 'react';
 
 const Asset = React.createClass({
 
-	getInitialState: function(){
-	  return {
-	    initialAssets: [
-	      "broom",
-	      "cabinet",
-	      "cable",
-	      "newspaper",
-	      "waterpipe"
-	    ],
-	    assets: []
-	  }
-	},
+	getInitialState: function() {
+		var id = this.props.assetId;
+		var asset = require('!json../assets/'+id);
+	};
+
 	componentWillMount: function(){
-	  this.setState({assets: this.state.initialAssets})
+	
 	},
 
   render: function(){
