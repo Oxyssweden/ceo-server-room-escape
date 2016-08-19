@@ -1,14 +1,14 @@
 {
   "id": "broom",
-  "sprite": "/images/broomstick.svg",
+  "sprite": "/images/rack.svg",
   "inventorySprite": "",
   "position": {
-    "x":"679",
-    "y":"258"
+    "x":"473",
+    "y":"142"
   },
   "size": {
-  	"h":"253",
-  	"w":"84"
+    "h":"401",
+    "w":"175"
   },
   "zindex": 1,
   "actions": {

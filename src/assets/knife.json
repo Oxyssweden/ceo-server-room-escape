@@ -10,6 +10,7 @@
 		"h":"0",
 		"w":"0"
 	},
+    "zindex": 1,
 	"actions": {
 		"view": "msg('A knife? Who put a knife here? Why?!')",
 		"pick_up": {

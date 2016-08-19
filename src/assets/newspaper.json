@@ -10,6 +10,7 @@
 		"h":"86",
 		"w":"125"
 	},
+    "zindex": 1,
 	"actions": {
 		"view": "msg('Who's been reading \"Drones Weekly\" in here?')",
 		"pick_up": "addToInventory(newspaper)",

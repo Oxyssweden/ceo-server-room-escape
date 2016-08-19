@@ -10,6 +10,7 @@
 		"h":"181",
 		"w":"124"
 	},
+    "zindex": 1,
 	"actions": {
 		"view": "msg('A filing cabinet.')",
 		"pick_up": "msg('This is way too heavy for me to pick it up.')",

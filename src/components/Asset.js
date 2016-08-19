@@ -12,7 +12,8 @@ const Asset = React.createClass({
   	  height: this.state.size.h,
   	  width: this.state.size.w,
   	  top: this.state.position.y,
-  	  left: this.state.position.x
+  	  left: this.state.position.x,
+      zIndex: this.state.zindex
   	};
     return (<img className="asset" src={this.state.sprite} style={inlineStyle}/>);
   }

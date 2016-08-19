@@ -10,6 +10,7 @@
 		"h":"79",
 		"w":"62"
 	},
+    "zindex": "2",
 	"actions": {
 		"view": "msg('A CAT6 cable.')",
 		"pick_up": {

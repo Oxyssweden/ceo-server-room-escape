@@ -1,0 +1,22 @@
+{
+  "id": "newspaper",
+  "sprite": "/images/servers.svg",
+  "inventorySprite": "",
+  "position": {
+    "x":"483",
+    "y":"160"
+  },
+  "size": {
+    "h":"246",
+    "w":"155"
+  },
+  "zindex": 3,
+  "actions": {
+    "view": "msg('Who's been reading \"Drones Weekly\" in here?')",
+    "pick_up": "addToInventory(newspaper)",
+    "use": {
+      "self":""
+    }
+  },
+  "on_stage":true
+}

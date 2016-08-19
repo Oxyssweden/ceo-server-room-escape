@@ -10,6 +10,7 @@
 		"h":"31",
 		"w":"42"
 	},
+    "zindex": 1,
 	"actions": {
 		"view": "msg('A small key, but what does it open?')",
 		"pick_up": {

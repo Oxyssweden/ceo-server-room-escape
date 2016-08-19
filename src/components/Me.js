@@ -64,7 +64,8 @@ const Me = React.createClass({
   render: function() {
     var meStyle = {
       top: this.state.top,
-      left: this.state.left
+      left: this.state.left,
+      zIndex: 4
     },
       bubbleStyle = {
         display: this.state.saying ? 'block' : 'none'
