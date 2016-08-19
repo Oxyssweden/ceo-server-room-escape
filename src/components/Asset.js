@@ -24,7 +24,7 @@ const Asset = React.createClass({
   	  top: this.state.position.y,
   	  left: this.state.position.x
   	};
-    return (<img className="asset" src={this.state.sprite} style={inlineStyle}/>);
+    return (<img onClick={this.handleClick} className="asset" src={this.state.sprite} style={inlineStyle}/>);
   }
 });
 
