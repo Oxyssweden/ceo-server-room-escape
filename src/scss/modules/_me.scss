@@ -3,9 +3,16 @@
   bottom: 0;
 }
 .speak-bubble {
-  background: #fff;
-  top: -100px;
-  border-radius: 20px;
-  width: 200px;
+  bottom: 100%;
+  border-radius: 50px;
+  width: 300px;
+  margin-left: -75px;
   font-family: "Comic Sans MS";
+  position: absolute;
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 0 0 10px black;
+  font-size: 20px;
+  font-weight: bold;
 }

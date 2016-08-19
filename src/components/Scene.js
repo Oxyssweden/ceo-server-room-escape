@@ -17,6 +17,9 @@ const Scene = React.createClass({
       <Asset assetId="knifebroom"/>
       <Asset assetId="newspaper"/>
       <Asset assetId="waterpipe"/>
+      <Asset assetId="waterpipe_fixed"/>
+      <Asset assetId="rack"/>
+      <Asset assetId="servers"/>
       <Me/>
       <Foreground file="/images/foreground.svg"/>
     </div>);

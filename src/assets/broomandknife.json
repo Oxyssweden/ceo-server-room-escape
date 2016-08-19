@@ -10,8 +10,9 @@
 		"h":"0",
 		"w":"0"
 	},
+    "zindex": 1,
 	"actions": {
-		"view": "this.msg('If there only was a way to make the knife stay on it.)",
+		"look": "this.msg('If there only was a way to make the knife stay on it.)",
 		"pick_up": {},
 		"use": {
 			"self":"",

@@ -1,22 +1,22 @@
 {
   "id": "broom",
-  "sprite": "/images/broomstick.svg",
+  "sprite": "/images/rack.svg",
   "inventorySprite": "",
   "position": {
-    "x":"679",
-    "y":"258"
+    "x":"473",
+    "y":"142"
   },
   "size": {
-  	"h":"253",
-  	"w":"84"
+    "h":"401",
+    "w":"175"
   },
-  "zindex": 2,
+  "zindex": 1,
   "actions": {
-    "look": "this.msg('It\"s a broom.')",
+    "look": "msg('It's a broom)",
     "pick_up": {
       "_var": "",
       "true": ["addToInventory()", "removeFromInventory()"],
-      "false": "this.msg('This is no time for cleaning!')"
+      "false": "msg('This is no time for cleaning!')"
     },
     "use": {
       "self":""

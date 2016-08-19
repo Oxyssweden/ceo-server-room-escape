@@ -10,8 +10,9 @@
 		"h":"31",
 		"w":"42"
 	},
+    "zindex": 1,
 	"actions": {
-		"view": "this.msg('A small key, but what does it open?')",
+		"look": "this.msg('A small key, but what does it open?')",
 		"pick_up": {
 			"_var": "newspaper.state.pickedUp",
 			"true": "addToInventory(key)",

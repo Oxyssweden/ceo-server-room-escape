@@ -10,8 +10,9 @@
 		"h":"0",
 		"w":"0"
 	},
+    "zindex": 1,
 	"actions": {
-		"view": "this.msg('A knife? Who put a knife here? Why?!')",
+		"look": "this.msg('A knife? Who put a knife here? Why?!')",
 		"pick_up": {
 			"_var": "cabinet.state.open",
 			"true": "addToInventory('knife')",

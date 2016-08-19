@@ -1,0 +1,22 @@
+{
+  "id": "newspaper",
+  "sprite": "/images/servers.svg",
+  "inventorySprite": "",
+  "position": {
+    "x":"483",
+    "y":"160"
+  },
+  "size": {
+    "h":"246",
+    "w":"155"
+  },
+  "zindex": 3,
+  "actions": {
+    "look": "this.msg('I think these are servers. Better not mess around with it.')",
+    "pick_up": "this.msg('I can't pick up that!.",
+    "use": {
+      "self":""
+    }
+  },
+  "on_stage":true
+}
