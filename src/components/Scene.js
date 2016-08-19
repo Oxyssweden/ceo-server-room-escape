@@ -1,8 +1,16 @@
 import React from 'react';
+import Asset from './Asset';
+import Background from './Background';
+import Foreground from './Foreground';
 
 const Scene = React.createClass({
   render: function(){
-    return (<div id="scene">Scene!</div>);
+    return (<div id="scene">
+      <Background file="/images/background.svg"/>
+      <Asset name="Broom!"/>
+      <Asset name="ServerRack!"/>
+      <Foreground file="/images/foreground.svg"/>
+    </div>);
   }
 });
 
