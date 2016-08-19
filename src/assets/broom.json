@@ -3,12 +3,12 @@
   "sprite": "/images/broomstick.svg",
   "inventorySprite": "",
   "position": {
-    "x":"100",
-    "y":"200"
+    "x":"679",
+    "y":"258"
   },
   "size": {
-  	"h":"200",
-  	"w":"50"
+  	"h":"253",
+  	"w":"84"
   },
   "actions": {
     "view": "msg('It's a broom)",
