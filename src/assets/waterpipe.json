@@ -1,6 +1,7 @@
 {
 	"id": "waterpipe",
-	"sprite": "/images/pipe.svg",	
+	"sprite": "/images/pipe.svg",
+	"inventorySprite": "",	
 	"position": {
 		"x":"",
 		"y":""

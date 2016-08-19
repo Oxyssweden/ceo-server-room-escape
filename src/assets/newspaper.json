@@ -1,6 +1,7 @@
 {
 	"id": "newspaper",
 	"sprite": "/images/newspaper.svg",
+	"inventorySprite": "",
 	"position": {
 	  "x":"",
 	  "y":""

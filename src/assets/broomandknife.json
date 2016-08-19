@@ -1,6 +1,7 @@
 {
 	"id": "broomandknife",
 	"sprite":"",
+	"inventorySprite": "",
 	"position": {
 	  "x":"",
 	  "y":""

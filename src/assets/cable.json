@@ -1,6 +1,7 @@
 {
 	"id": "cable",
 	"sprite": "/images/cable.svg",
+	"inventorySprite": "",
 	"position": {
 	  "x":"",
 	  "y":""

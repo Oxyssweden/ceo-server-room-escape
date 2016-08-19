@@ -1,6 +1,7 @@
 {
 	"id": "knifebroom",
 	"sprite":"",
+	"inventorySprite": "",
 	"position": {
 	  "x":"",
 	  "y":""
