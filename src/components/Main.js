@@ -1,13 +1,13 @@
 import React from 'react';
 import Scene from './Scene';
-import UserMenu from './UserMenu';
+import Inventory from './Inventory';
 
 const Main = React.createClass({
   render: function(){
     return (
-      <div className = "inner">
+      <div className="inner">
         <Scene/>
-        <UserMenu/>
+        <Inventory/>
       </div>
     );
   }
