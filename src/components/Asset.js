@@ -11,8 +11,8 @@ const Asset = React.createClass({
   	  display: this.state.on_stage == true ? 'initial' : 'none',
   	  height: this.state.size.h,
   	  width: this.state.size.w,
-  	  top: this.state.position.x,
-  	  left: this.state.position.y
+  	  top: this.state.position.y,
+  	  left: this.state.position.x
   	};
     return (<img className="asset" src={this.state.sprite} style={inlineStyle}/>);
   }
