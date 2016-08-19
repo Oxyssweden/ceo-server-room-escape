@@ -16,5 +16,6 @@
 			"self":"",
 			"cabinet": "openCabinet()"
 		}
-	}
+	},
+	"on_stage":false
 }

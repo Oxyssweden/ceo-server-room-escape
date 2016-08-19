@@ -7,6 +7,7 @@ const Asset = React.createClass({
 		return require('json!../assets/'+id);
 	},
   render: function(){
+  	this.state.on_stage = true;
     return (<img className="asset" src={this.state.sprite}/>);
   }
 });

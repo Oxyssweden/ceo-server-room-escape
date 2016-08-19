@@ -15,5 +15,6 @@
 			"self":"",
 			"broomandknife": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"]
 		}
-	}
+	},
+	"on_stage":false
 }

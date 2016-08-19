@@ -15,5 +15,6 @@
 	"states": {
 		"open":"",
 		"closed":""
-	}
+	},
+	"on_stage":false
 }

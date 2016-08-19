@@ -1,6 +1,7 @@
 {
   "id": "broom",
   "sprite": "/images/broomstick.svg",
+  "inventorySprite": "",
   "position": {
     "x":"",
     "y":""
@@ -15,5 +16,6 @@
     "use": {
       "self":""
     }
-  }
+  },
+  "on_stage":false
 }

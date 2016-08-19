@@ -16,5 +16,6 @@
 			"self":"",
 			"broom": "addToInventory('broomandknife'), removeFromInventory('knife')"
 		}
-	}
+	},
+	"on_stage":false
 }
