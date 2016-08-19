@@ -13,7 +13,7 @@ const Asset = React.createClass({
 	},
 
 	msg: function(text) {
-		this.eventEmitter('emit','speak',text);
+		this.eventEmitter('emit','speak', text);
 	},
 
   render: function(){
