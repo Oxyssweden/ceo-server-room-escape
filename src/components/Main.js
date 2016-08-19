@@ -5,7 +5,7 @@ import Inventory from './Inventory';
 const Main = React.createClass({
   render: function(){
     return (
-      <div className="inner">
+      <div id="container">
         <Scene/>
         <Inventory/>
       </div>
