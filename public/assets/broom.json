@@ -1,6 +1,7 @@
 {
 	"broom": {
 		"id": "broom",
+		"sprite": "../../images/broomstick.svg",
 		"actions": {
 			"view": "msg('It's a broom)",
 			"pick_up": {
