@@ -2,6 +2,7 @@ import React from 'react';
 var EventEmitterMixin = require('react-event-emitter-mixin');
 
 const Me = React.createClass({
+  timer: null,
   mixins:[EventEmitterMixin],
   getInitialState: function(){
     return {
@@ -20,24 +21,40 @@ const Me = React.createClass({
       });
     });
     this.eventEmitter('on','speak',(text)=>{
+      this.stopWalk();
       this.setState({
         sprite: '/images/me/talk.gif',
+        saying: text
       });
-      setTimeout(this.stopSpeak, text.length / 10 * 1000);
+      this.timer = this.setTimer(this.stopSpeak, text.length / 10 * 1000);
     });
   },
+  setTimer(func, millis) {
+    clearTimeout(this.timer);
+    setTimeout(func, millis);
+  },
   stopSpeak: function() {
+    this.setState({
+      sprite: '/images/me/standing-down.gif',
+      saying: false,
+    });
+  },
+  stopWalk: function() {
     this.setState({
       sprite: '/images/me/standing-down.gif',
     });
   },
   render: function() {
-    var inlineStyle = {
+    var meStyle = {
       top: this.state.top,
       left: this.state.left
-    };
-    return (<div id="me" style={inlineStyle}>
+    },
+      bubbleStyle = {
+        display: this.state.saying ? 'block' : 'none'
+      };
+    return (<div id="me" style={meStyle}>
       <img src={this.state.sprite}/>
+      <div style={bubbleStyle} className="speak-bubble">{this.state.saying}</div>
     </div>);
   }
 });

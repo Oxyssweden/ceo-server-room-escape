@@ -3,12 +3,12 @@
 	"sprite": "/images/cable.svg",
 	"inventorySprite": "",
 	"position": {
-	  "x":"",
-	  "y":""
+	  "x":"533",
+	  "y":"360"
 	},
 	"size": {
-		"h":"0",
-		"w":"0"
+		"h":"79",
+		"w":"62"
 	},
 	"actions": {
 		"view": "this.msg('A CAT6 cable.')",

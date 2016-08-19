@@ -3,12 +3,12 @@
 	"sprite": "/images/newspaper.svg",
 	"inventorySprite": "",
 	"position": {
-	  "x":"",
-	  "y":""
+	  "x":"42",
+	  "y":"631"
 	},
 	"size": {
-		"h":"0",
-		"w":"0"
+		"h":"86",
+		"w":"125"
 	},
 	"actions": {
 		"view": "this.msg('Who's been reading \"Drones Weekly\" in here?')",

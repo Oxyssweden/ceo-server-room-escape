@@ -3,12 +3,12 @@
 	"sprite": "/images/archive.svg",
 	"inventorySprite": "",
 	"position": {
-	  "x":"",
-	  "y":""
+	  "x":"1045",
+	  "y":"341"
 	},
 	"size": {
-		"h":"0",
-		"w":"0"
+		"h":"181",
+		"w":"124"
 	},
 	"actions": {
 		"view": "this.msg('A filing cabinet.')",

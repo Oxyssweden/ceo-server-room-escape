@@ -3,12 +3,12 @@
 	"sprite": "/images/key.svg",
 	"inventorySprite": "",
 	"position": {
-	  "x":"",
-	  "y":""
+	  "x":"81",
+	  "y":"653"
 	},
 	"size": {
-		"h":"0",
-		"w":"0"
+		"h":"31",
+		"w":"42"
 	},
 	"actions": {
 		"view": "this.msg('A small key, but what does it open?')",
