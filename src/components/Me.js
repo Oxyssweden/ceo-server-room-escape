@@ -3,6 +3,7 @@ var EventEmitterMixin = require('react-event-emitter-mixin');
 
 const Me = React.createClass({
   timer: null,
+  walkingInterval: null,
   mixins:[EventEmitterMixin],
   getInitialState: function(){
     return {
@@ -16,9 +17,10 @@ const Me = React.createClass({
   componentWillMount(){
     this.eventEmitter('on','walkTo',(x,y)=>{
       this.setState({
-        left: x - (this.state.width/2),
-        top: y - this.state.height
+        destinationLeft: x - (this.state.width/2),
+        destinationTop: y - this.state.height
       });
+      this.walkingInterval = setInterval(this.walk, 100);
     });
     this.eventEmitter('on','speak',(text)=>{
       this.stopWalk();
@@ -40,8 +42,23 @@ const Me = React.createClass({
     });
   },
   stopWalk: function() {
+    clearInterval(this.walkingInterval);
     this.setState({
       sprite: '/images/me/standing-down.gif',
+    });
+  },
+  walk: function() {
+    if (Math.round(this.state.top) == this.state.destinationTop && Math.round(this.state.left) == this.state.destinationLeft) {
+      this.stopWalk();
+      return;
+    }
+
+    var newTop = this.state.top + ((this.state.destinationTop - this.state.top) / 10);
+    var newLeft = this.state.left + ((this.state.destinationLeft - this.state.left) / 10);
+    this.setState({
+      top: newTop,
+      left: newLeft,
+      sprite: '/images/me/walk-left.gif',
     });
   },
   render: function() {
