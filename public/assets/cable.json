@@ -9,7 +9,7 @@
 			},
 			"use": {
 				"self":,
-				"broomandknife": "combine('cable', 'broomandknife')",
+				"broomandknife": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"],
 			},
 		}
 	}

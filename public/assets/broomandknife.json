@@ -6,7 +6,7 @@
 			"pick_up": {},
 			"use": {
 				"self":,
-				"cable": "combine('broomandknife', 'cable')",
+				"cable": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"],
 			},
 		}
 	}

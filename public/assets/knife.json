@@ -5,12 +5,12 @@
 			"view": "msg('A knife? Who put a knife here? Why?!')",
 			"pick_up": {
 				"_var": "cabinet.state.open",
-				"true": "addToInventory(knife)",
+				"true": "addToInventory('knife')",
 				"false": "msg('')"
 			},
 			"use": {
 				"self":,
-				"broom": "combine('knife', 'broom')",
+				"broom": "addToInventory('broomandknife'), removeFromInventory('knife')",
 			},
 		}
 	}
