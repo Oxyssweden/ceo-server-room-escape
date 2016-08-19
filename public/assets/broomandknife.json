@@ -1,0 +1,13 @@
+{
+	"broomandknife": {
+		"id": "broomandknife",
+		"actions": {
+			"view": "msg('If there only was a way to make the knife stay on it.)",
+			"pick_up": {},
+			"use": {
+				"self":,
+				"cable": "combine('broomandknife', 'cable')",
+			},
+		}
+	}
+}

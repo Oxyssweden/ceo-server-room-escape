@@ -9,7 +9,7 @@
 			},
 			"use": {
 				"self":,
-				"broomandhook": "combine('cable', 'broomandhook')",
+				"broomandknife": "combine('cable', 'broomandknife')",
 			},
 		}
 	}
