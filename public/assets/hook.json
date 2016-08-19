@@ -1,0 +1,17 @@
+{
+	"hook": {
+		"id": "hook",
+		"actions": {
+			"view": "msg('A hook? Who put a hook here? Why?!')",
+			"pick_up": {
+				"_var": "cabinet.state.open",
+				"true": "addToInventory(hook)",
+				"false": "msg('')"
+			},
+			"use": {
+				"self":,
+				"broom": "combine('hook', 'broom')",
+			},
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"cabinet": {
+		"id": "cabinet",
+		"actions": {
+			"view": "msg('Who's been reading \"Drones Weekly\" in here?')",
+			"pick_up": {
+				"_var": /* This should be discarded on pickup, right? Maybe? */,
+				"true": "addToInventory(newspaper)",
+				"false": "msg('I can't do that right now.)"
+			},
+			"use": {
+				"self":,
+			},
+		}
+	}
+}

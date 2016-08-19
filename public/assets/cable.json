@@ -1,0 +1,16 @@
+{
+	"cable": {
+		"id": "cable",
+		"actions": {
+			"view": "msg('A CAT6 cable.')",
+			"pick_up": {
+				"true": "addToInventory(cable)",
+				"false": "msg('')"
+			},
+			"use": {
+				"self":,
+				"broomandhook": "combine('cable', 'broomandhook')",
+			},
+		}
+	}
+}

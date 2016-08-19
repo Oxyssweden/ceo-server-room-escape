@@ -1,0 +1,16 @@
+{
+	"broom": {
+		"id": "broom",
+		"actions": {
+			"view": "msg('It's a broom)",
+			"pick_up": {
+				"_var": /* Check if asset.hook is in the inventory */,
+				"true": ["addToInventory()", "removeFromInventory()"],
+				"false": "msg('This is no time for cleaning!')"
+			},
+			"use": {
+				"self":,
+			},
+		}
+	}
+}
