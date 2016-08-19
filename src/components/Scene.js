@@ -8,8 +8,7 @@ const Scene = React.createClass({
   render: function(){
     return (<div id="scene">
       <Background file="/images/room.svg"/>
-      <Asset assetId="broom"/>
-      <Asset assetId="newspaper"/>
+
       <Me/>
       <Foreground file="/images/foreground.svg"/>
     </div>);
