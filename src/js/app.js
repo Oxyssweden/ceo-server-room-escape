@@ -1,12 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Main from '../components/Main';
 
-var MyComponent = React.createClass({
-  render: function(){
-    return (
-    <h1>Hello, {this.props.name}!</h1>
-    );
-  }
-});
-
-ReactDOM.render(<MyComponent name="Handsome" />, document.getElementById('container'));
+ReactDOM.render(<Main name="CEO"/>, document.getElementById('container'));
