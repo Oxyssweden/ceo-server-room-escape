@@ -5,19 +5,15 @@ var path = require('path');
 module.exports = {
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/App.js",
-  devServer: {
-    inline: true,
-    port: 3333
-  },
+  entry: "./js/app.js",
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015'],
+          presets: ['react', 'es2015', 'stage-0'],
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
         }
       }
@@ -25,7 +21,13 @@ module.exports = {
   },
   output: {
     path: __dirname + "/src/",
-    filename: "bundle.min.js"
+    filename: "app.min.js"
+  },
+  devServer: {
+    port: 3000,
+    historyApiFallback: {
+      index: './public/index.html'
+    }
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
