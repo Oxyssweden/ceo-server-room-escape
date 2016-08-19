@@ -11,8 +11,8 @@
 		"w":"0"
 	},
 	"actions": {
-		"view": "msg('A filing cabinet.')",
-		"pick_up": "msg('This is way too heavy for me to pick it up.')",
+		"view": "this.msg('A filing cabinet.')",
+		"pick_up": "this.msg('This is way too heavy for me to pick it up.')",
 		"use": {
 			"self":""
 		}

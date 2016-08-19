@@ -11,8 +11,8 @@
 		"w":"0"
 	},
 	"actions": {
-		"view": "msg('It's leaking. That can't be safe)",
-	  "pick_up": "msg('What am I supposed to do? Rip it out of the wall?')"
+		"view": "this.msg('It's leaking. That can't be safe)",
+	  "pick_up": "this.msg('What am I supposed to do? Rip it out of the wall?')"
 	},
 	"use": {
 		"self":""

@@ -11,11 +11,11 @@
 		"w":"0"
 	},
 	"actions": {
-		"view": "msg('A small key, but what does it open?')",
+		"view": "this.msg('A small key, but what does it open?')",
 		"pick_up": {
 			"_var": "newspaper.state.pickedUp",
 			"true": "addToInventory(key)",
-			"false": "msg('')"
+			"false": "this.msg('')"
 		},
 		"use": {
 			"self":"",

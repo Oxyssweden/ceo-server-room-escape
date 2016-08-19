@@ -11,7 +11,7 @@
 		"w":"0"
 	},
 	"actions": {
-		"view": "msg('Who's been reading \"Drones Weekly\" in here?')",
+		"view": "this.msg('Who's been reading \"Drones Weekly\" in here?')",
 		"pick_up": "addToInventory(newspaper)",
 		"use": {
 			"self":""
