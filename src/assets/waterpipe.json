@@ -1,13 +1,15 @@
 {
-"waterpipe": {
 	"id": "waterpipe",
-	"sprite": "/images/pipe.svg",
+	"sprite": "/images/pipe.svg",	
+	"position": {
+		"x":"",
+		"y":""
+	},
 	"actions": {
 		"view": "msg('It's leaking. That can't be safe)",
-		"pick_up": "msg('What am I supposed to do? Rip it out of the wall?')"
-		},
-		"use": {
-			"self":""
-		}
+	  "pick_up": "msg('What am I supposed to do? Rip it out of the wall?')"
+	},
+	"use": {
+		"self":""
 	}
 }

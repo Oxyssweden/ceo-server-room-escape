@@ -1,18 +1,20 @@
 {
-	"key": {
-		"id": "key",
-		"sprite": "/images/key.svg",
-		"actions": {
-			"view": "msg('A small key, but what does it open?')",
-			"pick_up": {
-				"_var": "newspaper.state.pickedUp",
-				"true": "addToInventory(key)",
-				"false": "msg('')"
-			},
-			"use": {
-				"self":"",
-				"cabinet": "openCabinet()"
-			}
+	"id": "key",
+	"sprite": "/images/key.svg",
+	"position": {
+	  "x":"",
+	  "y":""
+	},
+	"actions": {
+		"view": "msg('A small key, but what does it open?')",
+		"pick_up": {
+			"_var": "newspaper.state.pickedUp",
+			"true": "addToInventory(key)",
+			"false": "msg('')"
+		},
+		"use": {
+			"self":"",
+			"cabinet": "openCabinet()"
 		}
 	}
 }

@@ -1,17 +1,19 @@
 {
-	"cabinet": {
-		"id": "cabinet",
-		"sprite": "/images/archive.svg",
-		"actions": {
-			"view": "msg('A filing cabinet.')",
-			"pick_up": "msg('This is way too heavy for me to pick it up.')",
-			"use": {
-				"self":""
-			}
-		},
-		"states": {
-			"open":"",
-			"closed":""
+	"id": "cabinet",
+	"sprite": "/images/archive.svg",
+	"position": {
+	  "x":"",
+	  "y":""
+	},
+	"actions": {
+		"view": "msg('A filing cabinet.')",
+		"pick_up": "msg('This is way too heavy for me to pick it up.')",
+		"use": {
+			"self":""
 		}
+	},
+	"states": {
+		"open":"",
+		"closed":""
 	}
 }

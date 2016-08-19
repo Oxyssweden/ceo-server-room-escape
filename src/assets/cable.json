@@ -1,17 +1,19 @@
 {
-	"cable": {
-		"id": "cable",
-		"sprite": "/images/cable.svg",
-		"actions": {
-			"view": "msg('A CAT6 cable.')",
-			"pick_up": {
-				"true": "addToInventory(cable)",
-				"false": "msg('')"
-			},
-			"use": {
-				"self":"",
-				"broomandknife": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"]
-			}
+	"id": "cable",
+	"sprite": "/images/cable.svg",
+	"position": {
+	  "x":"",
+	  "y":""
+	},
+	"actions": {
+		"view": "msg('A CAT6 cable.')",
+		"pick_up": {
+			"true": "addToInventory(cable)",
+			"false": "msg('')"
+		},
+		"use": {
+			"self":"",
+			"broomandknife": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"]
 		}
 	}
 }
