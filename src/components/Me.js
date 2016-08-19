@@ -19,6 +19,17 @@ const Me = React.createClass({
         top: y - this.state.height
       });
     });
+    this.eventEmitter('on','speak',(text)=>{
+      this.setState({
+        sprite: '/images/me/talk.gif',
+      });
+      setTimeout(this.stopSpeak, text.length / 10 * 1000);
+    });
+  },
+  stopSpeak: function() {
+    this.setState({
+      sprite: '/images/me/standing-down.gif',
+    });
   },
   render: function() {
     var inlineStyle = {
