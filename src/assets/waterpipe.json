@@ -12,7 +12,7 @@
 	},
     "zindex": 1,
 	"actions": {
-		"view": "this.msg('It\"s leaking. That can\"t be safe')",
+		"look": "this.msg('It\"s leaking. That can\"t be safe')",
 	  "pick_up": "this.msg('What am I supposed to do? Rip it out of the wall?')"
 	},
 	"use": {
