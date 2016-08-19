@@ -4,7 +4,12 @@
   "private": true,
   "devDependencies": {
     "babel-preset-react-hmre": "^1.1.1",
-    "react-scripts": "0.2.1"
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.8.0",
+    "react-scripts": "0.2.1",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2"
   },
   "dependencies": {
     "babel-core": "^6.13.2",

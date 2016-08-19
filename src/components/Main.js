@@ -1,9 +1,14 @@
 import React from 'react';
+import Scene from './Scene';
+import UserMenu from './UserMenu';
 
 const Main = React.createClass({
   render: function(){
     return (
-      <h1>Hello, {this.props.name}!</h1>
+      <div>
+        <Scene/>
+        <UserMenu/>
+      </div>
     );
   }
 });
