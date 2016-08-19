@@ -2,6 +2,7 @@ import React from 'react';
 import Asset from './Asset';
 import Background from './Background';
 import Foreground from './Foreground';
+import Me from './Me';
 
 const Scene = React.createClass({
   render: function(){
@@ -9,6 +10,7 @@ const Scene = React.createClass({
       <Background file="/images/room.svg"/>
       <Asset assetId="broom"/>
       <Asset assetId="newspaper"/>
+      <Me/>
       <Foreground file="/images/foreground.svg"/>
     </div>);
   }
