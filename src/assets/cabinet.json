@@ -10,9 +10,9 @@
 		"h":"181",
 		"w":"124"
 	},
-    "zindex": 1,
+    "zindex": 2,
 	"actions": {
-		"view": "this.msg('A filing cabinet.')",
+		"look": "this.msg('A filing cabinet.')",
 		"pick_up": "this.msg('This is way too heavy for me to pick it up.')",
 		"use": {
 			"self":""

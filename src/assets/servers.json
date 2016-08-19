@@ -12,8 +12,8 @@
   },
   "zindex": 3,
   "actions": {
-    "view": "msg('Who's been reading \"Drones Weekly\" in here?')",
-    "pick_up": "addToInventory(newspaper)",
+    "look": "this.msg('I think these are servers. Better not mess around with it.')",
+    "pick_up": "this.msg('I can't pick up that!.",
     "use": {
       "self":""
     }

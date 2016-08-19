@@ -12,7 +12,7 @@
 	},
     "zindex": 1,
 	"actions": {
-		"view": "this.msg('Who's been reading \"Drones Weekly\" in here?')",
+		"look": "this.msg('Who\"s been reading \"Drones Weekly\" in here?')",
 		"pick_up": "addToInventory(newspaper)",
 		"use": {
 			"self":""

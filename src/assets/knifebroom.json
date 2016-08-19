@@ -12,7 +12,7 @@
 	},
     "zindex": 1,
 	"actions": {
-		"view": "this.msg('It's a broom with a knife tied to it at the end. Like a strange stone-age spear made by modern things. Is this what my life has become? What happened? Where did it all go wrong?)",
+		"look": "this.msg('It's a broom with a knife tied to it at the end. Like a strange stone-age spear made by modern things. Is this what my life has become? What happened? Where did it all go wrong?)",
 		"pick_up": {},
 		"use": {
 			"self":"",

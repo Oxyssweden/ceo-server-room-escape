@@ -12,7 +12,7 @@
   },
   "zindex": 1,
   "actions": {
-    "view": "msg('It's a broom)",
+    "look": "msg('It's a broom)",
     "pick_up": {
       "_var": "",
       "true": ["addToInventory()", "removeFromInventory()"],

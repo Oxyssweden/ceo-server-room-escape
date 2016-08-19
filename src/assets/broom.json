@@ -10,9 +10,9 @@
   	"h":"253",
   	"w":"84"
   },
-  "zindex": 1,
+  "zindex": 2,
   "actions": {
-    "view": "this.msg('It's a broom)",
+    "look": "this.msg('It\"s a broom.')",
     "pick_up": {
       "_var": "",
       "true": ["addToInventory()", "removeFromInventory()"],

@@ -1,0 +1,22 @@
+{
+  "id": "waterpipeFixed",
+  "sprite": "/images/pipe_fixed.svg",
+  "inventorySprite": "",
+  "position": {
+    "x":"511",
+    "y":"7"
+  },
+  "size": {
+    "h":"48",
+    "w":"58"
+  },
+  "zindex": 3,
+  "actions": {
+    "look": "this.msg('Someone did a quickfix on that leak. That can\"t be safe!')",
+    "pick_up": "this.msg('I can\"t reach it.')",
+    "use": {
+      "self":""
+    }
+  },
+  "on_stage":true
+}
