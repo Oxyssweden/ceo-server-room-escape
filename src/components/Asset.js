@@ -15,7 +15,7 @@ const Asset = React.createClass({
 	  }
 	},
 	componentWillMount: function(){
-	  this.setState({assets: this.state.initialAssets})
+		var id = this.props.assetId;
 	},
 
   render: function(){
