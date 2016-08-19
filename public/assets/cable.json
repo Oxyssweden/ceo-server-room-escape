@@ -1,6 +1,7 @@
 {
 	"cable": {
 		"id": "cable",
+		"sprite": "../../images/cable.svg",
 		"actions": {
 			"view": "msg('A CAT6 cable.')",
 			"pick_up": {

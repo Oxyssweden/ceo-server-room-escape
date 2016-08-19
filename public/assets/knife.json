@@ -1,6 +1,7 @@
 {
 	"knife": {
 		"id": "knife",
+		"sprite": "../../images/archive_open_knife.svg",
 		"actions": {
 			"view": "msg('A knife? Who put a knife here? Why?!')",
 			"pick_up": {
