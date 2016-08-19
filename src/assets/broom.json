@@ -12,11 +12,11 @@
   },
   "zindex": 1,
   "actions": {
-    "view": "msg('It's a broom)",
+    "view": "this.msg('It's a broom)",
     "pick_up": {
       "_var": "",
       "true": ["addToInventory()", "removeFromInventory()"],
-      "false": "msg('This is no time for cleaning!')"
+      "false": "this.msg('This is no time for cleaning!')"
     },
     "use": {
       "self":""

@@ -1,11 +1,21 @@
 import React from 'react';
-
+var EventEmitterMixin = require('react-event-emitter-mixin');
 const Asset = React.createClass({
 
 	getInitialState: function() {
 		var id = this.props.assetId;
 		return require('json!../assets/'+id);
 	},
+
+	mixins:[EventEmitterMixin],
+	handleClick: function(event) {
+		eval(this.state.actions.view)	  
+	},
+
+	msg: function(text) {
+		this.eventEmitter('emit','speak', text);
+	},
+
   render: function(){
   	var inlineStyle = {
   	  display: this.state.on_stage == true ? 'initial' : 'none',
@@ -15,7 +25,7 @@ const Asset = React.createClass({
   	  left: this.state.position.x,
       zIndex: this.state.zindex
   	};
-    return (<img className="asset" src={this.state.sprite} style={inlineStyle}/>);
+    return (<img onClick={this.handleClick} className="asset" src={this.state.sprite} style={inlineStyle}/>);
   }
 });
 

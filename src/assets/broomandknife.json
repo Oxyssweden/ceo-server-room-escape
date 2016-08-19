@@ -12,7 +12,7 @@
 	},
     "zindex": 1,
 	"actions": {
-		"view": "msg('If there only was a way to make the knife stay on it.)",
+		"view": "this.msg('If there only was a way to make the knife stay on it.)",
 		"pick_up": {},
 		"use": {
 			"self":"",

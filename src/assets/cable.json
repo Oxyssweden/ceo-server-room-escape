@@ -12,10 +12,10 @@
 	},
     "zindex": "2",
 	"actions": {
-		"view": "msg('A CAT6 cable.')",
+		"view": "this.msg('A CAT6 cable.')",
 		"pick_up": {
 			"true": "addToInventory(cable)",
-			"false": "msg('')"
+			"false": "this.msg('')"
 		},
 		"use": {
 			"self":"",
