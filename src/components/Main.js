@@ -5,7 +5,7 @@ import UserMenu from './UserMenu';
 const Main = React.createClass({
   render: function(){
     return (
-      <div>
+      <div className = "inner">
         <Scene/>
         <UserMenu/>
       </div>
