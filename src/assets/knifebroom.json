@@ -6,6 +6,10 @@
 	  "x":"",
 	  "y":""
 	},
+	"size": {
+		"h":"0",
+		"w":"0"
+	},
 	"actions": {
 		"view": "msg('It's a broom with a knife tied to it at the end. Like a strange stone-age spear made by modern things. Is this what my life has become? What happened? Where did it all go wrong?)",
 		"pick_up": {},

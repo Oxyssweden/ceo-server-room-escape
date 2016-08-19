@@ -3,8 +3,12 @@
 	"sprite": "/images/pipe.svg",
 	"inventorySprite": "",	
 	"position": {
-		"x":"",
-		"y":""
+		"x":"0",
+		"y":"0"
+	},
+	"size": {
+		"h":"0",
+		"w":"0"
 	},
 	"actions": {
 		"view": "msg('It's leaking. That can't be safe)",
@@ -13,5 +17,5 @@
 	"use": {
 		"self":""
 	},
-	"on_stage":false
+	"on_stage":true
 }

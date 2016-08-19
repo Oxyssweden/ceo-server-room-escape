@@ -6,6 +6,10 @@
 	  "x":"",
 	  "y":""
 	},
+	"size": {
+		"h":"0",
+		"w":"0"
+	},
 	"actions": {
 		"view": "msg('Who's been reading \"Drones Weekly\" in here?')",
 		"pick_up": "addToInventory(newspaper)",
@@ -13,5 +17,5 @@
 			"self":""
 		}
 	},
-	"on_stage":false
+	"on_stage":true
 }

@@ -6,6 +6,10 @@
 	  "x":"",
 	  "y":""
 	},
+	"size": {
+		"h":"0",
+		"w":"0"
+	},
 	"actions": {
 		"view": "msg('A small key, but what does it open?')",
 		"pick_up": {

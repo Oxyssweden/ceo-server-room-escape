@@ -6,6 +6,10 @@
 	  "x":"",
 	  "y":""
 	},
+	"size": {
+		"h":"0",
+		"w":"0"
+	},
 	"actions": {
 		"view": "msg('A knife? Who put a knife here? Why?!')",
 		"pick_up": {

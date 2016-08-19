@@ -7,8 +7,14 @@ const Asset = React.createClass({
 		return require('json!../assets/'+id);
 	},
   render: function(){
-  	this.state.on_stage = true;
-    return (<img className="asset" src={this.state.sprite}/>);
+  	var inlineStyle = {
+  	  display: this.state.on_stage == true ? 'initial' : 'none',
+  	  height: this.state.size.h,
+  	  width: this.state.size.w,
+  	  top: this.state.position.x,
+  	  left: this.state.position.y
+  	};
+    return (<img className="asset" src={this.state.sprite} style={inlineStyle}/>);
   }
 });
 
