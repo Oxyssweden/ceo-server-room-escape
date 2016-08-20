@@ -18,11 +18,7 @@
 		},
 		{
 			"label": "Pick up",
-			"effect": {
-				"_var": "newspaper.state.pickedUp",
-				"true": "addToInventory(clickedAsset)",
-				"false": "say('')"
-			}
+			"effect": "addToInventory(clickedAsset)"
 		},
 		{
 			"label": "Use",
@@ -33,5 +29,5 @@
 			}
 		}
 	],
-	"on_stage":false
+	"on_stage":true
 }
