@@ -14,7 +14,7 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "this.msg('If there only was a way to make the knife stay on it.)"
+			"effect": "msg('If there only was a way to make the knife stay on it.)"
 		},
 		{
 			"label": "Pick up",
@@ -23,7 +23,7 @@
 		{
 			"label": "Use",
 			"effect": {
-				"_var": "this.using",
+				"_var": "usingItem()",
 				"self":"",
 				"cable": "addToInventory('knifebroom');removeFromInventory('cable', 'broomandknife')"
 			}

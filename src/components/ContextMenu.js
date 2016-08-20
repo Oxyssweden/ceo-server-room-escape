@@ -45,9 +45,6 @@ const ContextMenu = React.createClass({
     }
     },
 
-  msg: function(text) {
-    this.eventEmitter('emit','speak', text);
-  },
     render() {
       var that = this;
       var inlineStyle = {

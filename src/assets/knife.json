@@ -14,20 +14,20 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "this.msg('A knife? Who put a knife here? Why?!')"
+			"effect": "msg('A knife? Who put a knife here? Why?!')"
 		},
 		{
 			"label": "Pick up",
 			"effect": {
 				"_var": "cabinet.state.open",
 				"true": "addToInventory('knife')",
-				"false": "this.msg('')"
+				"false": "msg('')"
 			}
 		},
 		{
 			"label": "Use",
 			"effect": {
-				"_var": "this.using",
+				"_var": "usingItem()",
 				"self":"",
 				"broom": "addToInventory('broomandknife'), removeFromInventory('knife')"
 			}

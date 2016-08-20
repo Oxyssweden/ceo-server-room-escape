@@ -14,16 +14,16 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "this.msg('A filing cabinet.')"
+			"effect": "msg('A filing cabinet.')"
 		},
 		{
 			"label": "Pick up",
-			"effect": "this.msg('This is way too heavy for me to pick it up.')"
+			"effect": "msg('This is way too heavy for me to pick it up.')"
 		},
 		{
 			"label": "Use",
 			"effect": {
-				"_var": "this.using",
+				"_var": "usingItem()",
 				"self":""
 			}
 		}

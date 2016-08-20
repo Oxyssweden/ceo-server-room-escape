@@ -14,20 +14,20 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "this.msg('A small key, but what does it open?')"
+			"effect": "msg('A small key, but what does it open?')"
 		},
 		{
 			"label": "Pick up",
 			"effect": {
 				"_var": "newspaper.state.pickedUp",
 				"true": "addToInventory(key)",
-				"false": "this.msg('')"
+				"false": "msg('')"
 			}
 		},
 		{
 			"label": "Use",
 			"effect": {
-				"_var": "this.using",
+				"_var": "usingItem()",
 				"self":"",
 				"cabinet": "openCabinet()"
 			}

@@ -14,7 +14,7 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "this.msg('Who\"s been reading \"Drones Weekly\" in here?')"
+			"effect": "msg('Who\"s been reading \"Drones Weekly\" in here?')"
 		},
 		{
 			"label": "Pick up",
@@ -23,7 +23,7 @@
 		{
 			"label": "Use",
 			"effect": {
-				"_var": "this.using",
+				"_var": "usingItem()",
 				"self":""
 			}
 		}

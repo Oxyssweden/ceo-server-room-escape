@@ -14,7 +14,7 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "this.msg('It's a broom with a knife tied to it at the end. Like a strange stone-age spear made by modern things. Is this what my life has become? What happened? Where did it all go wrong?)"
+			"effect": "msg('It's a broom with a knife tied to it at the end. Like a strange stone-age spear made by modern things. Is this what my life has become? What happened? Where did it all go wrong?)"
 		},
 		{
 			"label": "Pick up",
@@ -23,7 +23,7 @@
 		{
 			"label": "Use",
 			"effect": {
-				"_var": "this.using",
+				"_var": "usingItem()",
 				"self":"",
 				"waterpipe": "finalconclusion()"
 			}

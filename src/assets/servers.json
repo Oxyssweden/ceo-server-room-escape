@@ -14,15 +14,15 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "this.msg('I think these are servers. Better not mess around with it.')"
+      "effect": "msg('I think these are servers. Better not mess around with it.')"
     },
     {
       "label": "Pick up",
-      "effect": "this.msg('I cant pick up that!')"
+      "effect": "msg('I cant pick up that!')"
     },
     {
       "label": "Use",
-      "effect": "this.msg('I think these are servers. Better not mess around with it.')"
+      "effect": "msg('I think these are servers. Better not mess around with it.')"
     }
   ],
   "on_stage":true

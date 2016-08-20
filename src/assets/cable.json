@@ -14,16 +14,16 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "this.msg('A CAT6 cable.')"
+			"effect": "msg('A CAT6 cable.')"
 		},
 		{
 			"label": "Pick up",
-			"effect": "addToInventory(cable)"
+			"effect": "addToInventory(this)"
 		},
 		{
 			"label": "Use",
 			"effect": {
-				"_var": "this.using",
+				"_var": "usingItem()",
 				"self":"",
 				"broomandknife": "addToInventory('knifebroom');removeFromInventory('cable', 'broomandknife')"
 			}

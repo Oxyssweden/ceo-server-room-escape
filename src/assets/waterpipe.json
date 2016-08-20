@@ -14,16 +14,16 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "this.msg('It\"s leaking. That can\"t be safe')"
+			"effect": "msg('It\"s leaking. That can\"t be safe')"
 		},
 		{
 			"label": "Pick up",
-			"effect": "this.msg('What am I supposed to do? Rip it out of the wall?')"
+			"effect": "msg('What am I supposed to do? Rip it out of the wall?')"
 		},
 		{
 			"label": "Use",
 			"effect": {
-				"_var": "this.using",
+				"_var": "usingItem()",
 				"self":""
 			}
 		}

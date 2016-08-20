@@ -14,7 +14,7 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "this.msg('It\"s a server rack.')"
+      "effect": "msg('It\"s a server rack.')"
     },
     {
       "label": "Pick up",
@@ -23,7 +23,7 @@
     {
       "label": "Use",
       "effect": {
-        "_var": "this.using",
+        "_var": "usingItem()",
         "self":""
       }
     }
