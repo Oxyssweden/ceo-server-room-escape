@@ -11,12 +11,22 @@
 		"w":"125"
 	},
     "zindex": 1,
-	"actions": {
-		"look": "this.msg('Who\"s been reading \"Drones Weekly\" in here?')",
-		"pick_up": "addToInventory(newspaper)",
-		"use": {
-			"self":""
+	"actions": [
+		{
+			"label": "Look",
+			"effect": "this.msg('Who\"s been reading \"Drones Weekly\" in here?')"
+		},
+		{
+			"label": "Pick up",
+			"effect": "addToInventory(newspaper)"
+		},
+		{
+			"label": "Use",
+			"effect": {
+				"_var": "this.using",
+				"self":""
+			}
 		}
-	},
+	],
 	"on_stage":true
 }

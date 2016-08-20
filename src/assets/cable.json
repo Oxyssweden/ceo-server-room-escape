@@ -11,16 +11,23 @@
 		"w":"62"
 	},
     "zindex": "2",
-	"actions": {
-		"look": "this.msg('A CAT6 cable.')",
-		"pick_up": {
-			"true": "addToInventory(cable)",
-			"false": "this.msg('')"
+	"actions": [
+		{
+			"label": "Look",
+			"effect": "this.msg('A CAT6 cable.')"
 		},
-		"use": {
-			"self":"",
-			"broomandknife": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"]
+		{
+			"label": "Pick up",
+			"effect": "addToInventory(cable)"
+		},
+		{
+			"label": "Use",
+			"effect": {
+				"_var": "this.using",
+				"self":"",
+				"broomandknife": "addToInventory('knifebroom');removeFromInventory('cable', 'broomandknife')"
+			}
 		}
-	},
+	],
 	"on_stage":true
 }

@@ -3,6 +3,7 @@ import Asset from './Asset';
 import Background from './Background';
 import Foreground from './Foreground';
 import Me from './Me';
+import ContextMenu from './ContextMenu';
 
 const Scene = React.createClass({
   render: function(){
@@ -22,6 +23,7 @@ const Scene = React.createClass({
       <Asset assetId="servers"/>
       <Me/>
       <Foreground file="/images/foreground.svg"/>
+      <ContextMenu/>
     </div>);
   }
 });

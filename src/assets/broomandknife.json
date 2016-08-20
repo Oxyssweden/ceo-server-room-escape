@@ -11,13 +11,23 @@
 		"w":"0"
 	},
     "zindex": 1,
-	"actions": {
-		"look": "this.msg('If there only was a way to make the knife stay on it.)",
-		"pick_up": {},
-		"use": {
-			"self":"",
-			"cable": ["addToInventory('knifebroom')", "removeFromInventory('cable', 'broomandknife')"]
+	"actions": [
+		{
+			"label": "Look",
+			"effect": "this.msg('If there only was a way to make the knife stay on it.)"
+		},
+		{
+			"label": "Pick up",
+			"effect": ""
+		},
+		{
+			"label": "Use",
+			"effect": {
+				"_var": "this.using",
+				"self":"",
+				"cable": "addToInventory('knifebroom');removeFromInventory('cable', 'broomandknife')"
+			}
 		}
-	},
+	],
 	"on_stage":false
 }

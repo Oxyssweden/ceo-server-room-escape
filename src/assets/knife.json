@@ -11,17 +11,27 @@
 		"w":"0"
 	},
     "zindex": 1,
-	"actions": {
-		"look": "this.msg('A knife? Who put a knife here? Why?!')",
-		"pick_up": {
-			"_var": "cabinet.state.open",
-			"true": "addToInventory('knife')",
-			"false": "this.msg('')"
+	"actions": [
+		{
+			"label": "Look",
+			"effect": "this.msg('A knife? Who put a knife here? Why?!')"
 		},
-		"use": {
-			"self":"",
-			"broom": "addToInventory('broomandknife'), removeFromInventory('knife')"
+		{
+			"label": "Pick up",
+			"effect": {
+				"_var": "cabinet.state.open",
+				"true": "addToInventory('knife')",
+				"false": "this.msg('')"
+			}
+		},
+		{
+			"label": "Use",
+			"effect": {
+				"_var": "this.using",
+				"self":"",
+				"broom": "addToInventory('broomandknife'), removeFromInventory('knife')"
+			}
 		}
-	},
+	],
 	"on_stage":false
 }

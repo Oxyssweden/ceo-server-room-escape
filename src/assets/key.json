@@ -11,17 +11,27 @@
 		"w":"42"
 	},
     "zindex": 1,
-	"actions": {
-		"look": "this.msg('A small key, but what does it open?')",
-		"pick_up": {
-			"_var": "newspaper.state.pickedUp",
-			"true": "addToInventory(key)",
-			"false": "this.msg('')"
+	"actions": [
+		{
+			"label": "Look",
+			"effect": "this.msg('A small key, but what does it open?')"
 		},
-		"use": {
-			"self":"",
-			"cabinet": "openCabinet()"
+		{
+			"label": "Pick up",
+			"effect": {
+				"_var": "newspaper.state.pickedUp",
+				"true": "addToInventory(key)",
+				"false": "this.msg('')"
+			}
+		},
+		{
+			"label": "Use",
+			"effect": {
+				"_var": "this.using",
+				"self":"",
+				"cabinet": "openCabinet()"
+			}
 		}
-	},
+	],
 	"on_stage":false
 }

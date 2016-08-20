@@ -11,13 +11,23 @@
 		"w":"124"
 	},
     "zindex": 2,
-	"actions": {
-		"look": "this.msg('A filing cabinet.')",
-		"pick_up": "this.msg('This is way too heavy for me to pick it up.')",
-		"use": {
-			"self":""
+	"actions": [
+		{
+			"label": "Look",
+			"effect": "this.msg('A filing cabinet.')"
+		},
+		{
+			"label": "Pick up",
+			"effect": "this.msg('This is way too heavy for me to pick it up.')"
+		},
+		{
+			"label": "Use",
+			"effect": {
+				"_var": "this.using",
+				"self":""
+			}
 		}
-	},
+	],
 	"states": {
 		"open":"",
 		"closed":""

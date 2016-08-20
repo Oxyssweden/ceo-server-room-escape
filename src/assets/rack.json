@@ -11,16 +11,22 @@
     "w":"175"
   },
   "zindex": 1,
-  "actions": {
-    "look": "msg('It's a broom)",
-    "pick_up": {
-      "_var": "",
-      "true": ["addToInventory()", "removeFromInventory()"],
-      "false": "msg('This is no time for cleaning!')"
+  "actions": [
+    {
+      "label": "Look",
+      "effect": "this.msg('It\"s a server rack.')"
     },
-    "use": {
-      "self":""
+    {
+      "label": "Pick up",
+      "effect": ""
+    },
+    {
+      "label": "Use",
+      "effect": {
+        "_var": "this.using",
+        "self":""
+      }
     }
-  },
+  ],
   "on_stage":true
 }

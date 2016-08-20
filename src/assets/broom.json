@@ -11,16 +11,26 @@
   	"w":"84"
   },
   "zindex": 2,
-  "actions": {
-    "look": "this.msg('It\"s a broom.')",
-    "pick_up": {
-      "_var": "",
-      "true": ["addToInventory()", "removeFromInventory()"],
-      "false": "this.msg('This is no time for cleaning!')"
+  "actions": [
+    {
+      "label": "Look",
+      "effect": "this.msg('It\"s a broom.')"
     },
-    "use": {
-      "self":""
+    {
+      "label": "Pick up",
+      "effect": {
+        "_var": "",
+        "true": ["addToInventory()", "removeFromInventory()"],
+        "false": "this.msg('This is no time for cleaning!')"
+      }
+    },
+    {
+      "label": "Use",
+      "effect": {
+        "_var": "this.using",
+        "self":""
+      }
     }
-  },
+  ],
   "on_stage":true
 }

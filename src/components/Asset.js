@@ -9,11 +9,7 @@ const Asset = React.createClass({
 
 	mixins:[EventEmitterMixin],
 	handleClick: function(event) {
-		eval(this.state.actions.look)
-	},
-
-	msg: function(text) {
-		this.eventEmitter('emit','speak', text);
+      this.eventEmitter('emit','contextMenuOpen', event.screenX, event.screenY, this.state);
 	},
 
   render: function(){

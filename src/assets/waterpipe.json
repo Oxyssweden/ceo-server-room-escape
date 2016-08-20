@@ -11,10 +11,23 @@
 		"w":"1084"
 	},
     "zindex": 1,
-	"actions": {
-		"look": "this.msg('It\"s leaking. That can\"t be safe')",
-	  "pick_up": "this.msg('What am I supposed to do? Rip it out of the wall?')"
-	},
+	"actions": [
+		{
+			"label": "Look",
+			"effect": "this.msg('It\"s leaking. That can\"t be safe')"
+		},
+		{
+			"label": "Pick up",
+			"effect": "this.msg('What am I supposed to do? Rip it out of the wall?')"
+		},
+		{
+			"label": "Use",
+			"effect": {
+				"_var": "this.using",
+				"self":""
+			}
+		}
+	],
 	"use": {
 		"self":""
 	},

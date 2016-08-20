@@ -11,12 +11,19 @@
     "w":"155"
   },
   "zindex": 3,
-  "actions": {
-    "look": "this.msg('I think these are servers. Better not mess around with it.')",
-    "pick_up": "this.msg('I can't pick up that!.",
-    "use": {
-      "self":""
+  "actions": [
+    {
+      "label": "Look",
+      "effect": "this.msg('I think these are servers. Better not mess around with it.')"
+    },
+    {
+      "label": "Pick up",
+      "effect": "this.msg('I cant pick up that!')"
+    },
+    {
+      "label": "Use",
+      "effect": "this.msg('I think these are servers. Better not mess around with it.')"
     }
-  },
+  ],
   "on_stage":true
 }
