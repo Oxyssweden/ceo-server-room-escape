@@ -20,7 +20,7 @@
 			"label": "Pick up",
 			"effect": {
 				"_var": "newspaper.state.pickedUp",
-				"true": "addToInventory(key)",
+				"true": "addToInventory(clickedAsset)",
 				"false": "msg('')"
 			}
 		},

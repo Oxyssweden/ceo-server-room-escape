@@ -6,7 +6,7 @@ const List = React.createClass({
       <ul class="list">
         {
           this.props.items.map(function(item) {
-            return <li key={item}>{item}</li>
+            return <li key={item.state.id}>{item.state.id}</li>
           })
         }
       </ul>

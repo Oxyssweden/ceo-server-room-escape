@@ -15,7 +15,7 @@
   };
 
   window.addToInventory = function(item) {
-    //EE.eventEmitter('emit', 'speak', 'Added this to inventory:' + item.state.id);
+    console.log(item);
     EE.eventEmitter('emit', 'addToInventory', item);
     item.setState({
       "on_stage": false
@@ -23,7 +23,7 @@
   };
 
   window.removeFromInventory = function(item) {
-    EE.eventEmitter('emit', 'speak', 'Removed this from inventory:' + item.state.id);
+    console.log(item);
     EE.eventEmitter('emit', 'removeFromInventory', item);
   };
 

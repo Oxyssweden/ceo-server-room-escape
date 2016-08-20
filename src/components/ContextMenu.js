@@ -13,13 +13,12 @@ const ContextMenu = React.createClass({
       display: 'none',
       top: 0,
       left: 0,
-      data: {
-        actions: []
+      asset: {
+        state: {
+          actions: []
+        }
       }
     }
-  },
-  using() {
-    return "self"
   },
   componentWillMount(){
     this.eventEmitter('on','contextMenuOpen',(x,y,data)=>{
@@ -27,41 +26,48 @@ const ContextMenu = React.createClass({
         top: y,
         left: x,
         display:'block',
-        data: data
+        asset: data
       });
     });
     this.eventEmitter('on','speak',()=>{
-      this.setState({
-        display:'none'
-      });
+      this.close();
+    });
+    this.eventEmitter('on','walkTo',()=>{
+      this.close();
     });
   },
-    handleClick(action) {
+  handleClick(action, clickedAsset) {
     if (typeof action === 'object') {
       var key = eval(action._var);
       eval(action[key]);
     } else {
       eval(action);
     }
-    },
+    this.close();
+  },
+  close() {
+    this.setState({
+      display:'none'
+    });
+  },
 
-    render() {
-      var that = this;
-      var inlineStyle = {
-          top: this.state.top,
-          left: this.state.left,
-          display: this.state.display,
-        };
-      return (
-        <ul className="context-menu" style={inlineStyle}>
-          {
-            this.state.data.actions.map(function(item) {
-              return <li key={item.label} onClick={that.handleClick.bind(that, item.effect)}>{item.label}</li>
-            })
-          }
-        </ul>
-      );
-    }
+  render() {
+    var that = this;
+    var inlineStyle = {
+      top: this.state.top,
+      left: this.state.left,
+      display: this.state.display,
+    };
+    return (
+      <ul className="context-menu" style={inlineStyle}>
+        {
+          this.state.asset.state.actions.map(function(item) {
+            return <li key={item.label} onClick={that.handleClick.bind(that, item.effect, that.state.asset)}>{item.label}</li>
+          })
+        }
+      </ul>
+    );
+  }
 });
 
 export default ContextMenu;
