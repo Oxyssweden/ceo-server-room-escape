@@ -14,11 +14,11 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "msg('It\"s leaking. That can\"t be safe')"
+			"effect": "say('It\"s leaking. That can\"t be safe')"
 		},
 		{
 			"label": "Pick up",
-			"effect": "msg('What am I supposed to do? Rip it out of the wall?')"
+			"effect": "say('What am I supposed to do? Rip it out of the wall?')"
 		},
 		{
 			"label": "Use",

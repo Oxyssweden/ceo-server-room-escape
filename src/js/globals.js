@@ -6,7 +6,7 @@
   var EE = require('react-event-emitter-mixin');
   window.itemInUse = null;
 
-  window.msg = function(text) {
+  window.say = function(text) {
     EE.eventEmitter('emit', 'speak', text);
   };
 

@@ -14,15 +14,15 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('I think these are servers. Better not mess around with it.')"
+      "effect": "say('I think these are servers. Better not mess around with it.')"
     },
     {
       "label": "Pick up",
-      "effect": "msg('I cant pick up that!')"
+      "effect": "say('I cant pick up that!')"
     },
     {
       "label": "Use",
-      "effect": "msg('I think these are servers. Better not mess around with it.')"
+      "effect": "say('I think these are servers. Better not mess around with it.')"
     }
   ],
   "on_stage":true

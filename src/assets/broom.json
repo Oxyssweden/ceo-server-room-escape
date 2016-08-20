@@ -14,14 +14,14 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('It\"s a broom.')"
+      "effect": "say('It\"s a broom.')"
     },
     {
       "label": "Pick up",
       "effect": {
         "_var": "",
         "true": ["addToInventory()", "removeFromInventory()"],
-        "false": "msg('This is no time for cleaning!')"
+        "false": "say('This is no time for cleaning!')"
       }
     },
     {
