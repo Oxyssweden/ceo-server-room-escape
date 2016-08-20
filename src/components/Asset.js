@@ -9,7 +9,8 @@ const Asset = React.createClass({
 
 	mixins:[EventEmitterMixin],
 	handleClick: function(event) {
-      this.eventEmitter('emit','contextMenuOpen', event.screenX, event.screenY, this);
+      var pos = getClickOnScenePos(event);
+      this.eventEmitter('emit','contextMenuOpen', pos.x, pos.y, this);
 	},
 
   render: function(){
