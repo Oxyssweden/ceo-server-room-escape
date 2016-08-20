@@ -24,7 +24,8 @@
 			"label": "Use",
 			"effect": {
 				"_var": "usingItem()",
-				"self":""
+				"self":"",
+				"key": "say('Unlocked the cabinet!!!!')"
 			}
 		}
 	],

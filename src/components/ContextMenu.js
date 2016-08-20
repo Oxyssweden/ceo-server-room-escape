@@ -36,13 +36,8 @@ const ContextMenu = React.createClass({
       this.close();
     });
   },
-  handleClick(action, clickedAsset) {
-    if (typeof action === 'object') {
-      var key = eval(action._var);
-      eval(action[key]);
-    } else {
-      eval(action);
-    }
+  handleClick(actionLabel, clickedAsset) {
+    takeAction(actionLabel, clickedAsset);
     this.close();
   },
   close() {
@@ -62,7 +57,7 @@ const ContextMenu = React.createClass({
       <ul className="context-menu" style={inlineStyle}>
         {
           this.state.asset.state.actions.map(function(item) {
-            return <li key={item.label} onClick={that.handleClick.bind(that, item.effect, that.state.asset)}>{item.label}</li>
+            return <li key={item.label} onClick={that.handleClick.bind(that, item.label, that.state.asset)}>{item.label}</li>
           })
         }
       </ul>
