@@ -15,6 +15,7 @@
   };
 
   window.useItem = function(id) {
+    EE.eventEmitter('emit', 'useItem', id);
     window.itemInUse = id;
   };
 
@@ -34,7 +35,6 @@
   };
 
   window.addToInventory = function(item) {
-    console.log(item);
     EE.eventEmitter('emit', 'addToInventory', item);
     item.setState({
       "on_stage": false
@@ -42,7 +42,6 @@
   };
 
   window.removeFromInventory = function(item) {
-    console.log(item);
     EE.eventEmitter('emit', 'removeFromInventory', item);
   };
 

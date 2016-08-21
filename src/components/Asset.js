@@ -11,6 +11,7 @@ const Asset = React.createClass({
 	handleClick: function(event) {
 	  if (itemInUse) {
 	    takeAction('Use', this);
+        this.eventEmitter('emit', 'usedItem', itemInUse);
         itemInUse = null;
       } else {
         var pos = getClickOnScenePos(event);
