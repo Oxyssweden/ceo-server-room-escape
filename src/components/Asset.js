@@ -18,6 +18,12 @@ const Asset = React.createClass({
         this.eventEmitter('emit','contextMenuOpen', pos.x, pos.y, this);
       }
 	},
+  pickUp: function() {
+    this.eventEmitter('emit', 'addToInventory', this);
+    this.setState({
+      "on_stage": false
+    });
+  },
 
   render: function(){
   	var inlineStyle = {
