@@ -14,11 +14,11 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "say('A shelf with a stack of papers. Wanna hear a joke about paper? Nevermind, it\"s tearable!')"
+      "effect": "say('A shelf with a stack of papers. Wanna hear a joke about paper? Nevermind, it´s tearable!')"
     },
     {
       "label": "Pick up",
-      "effect": "say('I don\"t want it.')"
+      "effect": "say('I don´t want it.')"
     },
     {
       "label": "Use",

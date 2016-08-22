@@ -14,7 +14,7 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "say('The accounting covers. I prefer fiction but last year\"s edition was really exciting!')"
+      "effect": "say('The accounting covers. I prefer fiction but last year´s edition was really exciting!')"
     },
     {
       "label": "Pick up",

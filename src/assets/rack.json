@@ -14,7 +14,7 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "say('It\"s a server rack.')"
+      "effect": "say('It´s a server rack.')"
     },
     {
       "label": "Pick up",

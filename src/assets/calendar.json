@@ -18,7 +18,7 @@
     },
     {
       "label": "Pick up",
-      "effect": "say('I can\"t take this down. It is a nostalgic thing.')"
+      "effect": "say('I can´t take this down. It is a nostalgic thing.')"
     },
     {
       "label": "Use",

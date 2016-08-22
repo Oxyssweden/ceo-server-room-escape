@@ -14,7 +14,7 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "say('It\"s leaking. That can\"t be safe')"
+			"effect": "say('It´s leaking. That can´t be safe')"
 		},
 		{
 			"label": "Pick up",

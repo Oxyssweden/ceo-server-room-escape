@@ -14,7 +14,7 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "say('It\"s a broom.')"
+      "effect": "say('It´s a broom.')"
     },
     {
       "label": "Pick up",
