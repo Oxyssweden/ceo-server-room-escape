@@ -1,0 +1,36 @@
+{
+  "id": "calendar",
+  "sprite": "/images/calendar.svg",
+  "inventorySprite": "",
+  "position": {
+    "x":"908",
+    "y":"222"
+  },
+  "size": {
+    "h":"79",
+    "w":"85"
+  },
+  "zindex": 3,
+  "actions": [
+    {
+      "label": "Look",
+      "effect": "msg('A calendar. August 1997.')"
+    },
+    {
+      "label": "Pick up",
+      "effect": "msg('I can\"t take this down. It is a nostalgic thing.')"
+    },
+    {
+      "label": "Use",
+      "effect": {
+        "_var": "usingItem()",
+        "self":""
+      }
+    }
+  ],
+  "states": {
+    "open":"",
+    "closed":""
+  },
+  "on_stage":true
+}

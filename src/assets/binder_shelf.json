@@ -1,0 +1,32 @@
+{
+  "id": "binder-shelf",
+  "sprite": "/images/binder_shelf.svg",
+  "inventorySprite": "",
+  "position": {
+    "x":"214",
+    "y":"197"
+  },
+  "size": {
+    "h":"92",
+    "w":"130"
+  },
+  "zindex": 2,
+  "actions": [
+    {
+      "label": "Look",
+      "effect": "msg('The accounting covers. I prefer fiction but last year\"s edition was really exciting!')"
+    },
+    {
+      "label": "Pick up",
+      "effect": "msg('It is enough to read them once.')"
+    },
+    {
+      "label": "Use",
+      "effect": {
+        "_var": "usingItem()",
+        "self":""
+      }
+    }
+  ],
+  "on_stage":true
+}
