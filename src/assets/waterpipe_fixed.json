@@ -14,11 +14,11 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('Someone did a quickfix on that leak. That can\"t be safe!')"
+      "effect": "say('Someone did a quickfix on that leak. That can\"t be safe!')"
     },
     {
       "label": "Pick up",
-      "effect": "msg('I can\"t reach it.')"
+      "effect": "say('I can\"t reach it.')"
     },
     {
       "label": "Use",

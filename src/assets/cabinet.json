@@ -19,13 +19,14 @@
 		},
 		{
 			"label": "Pick up",
-			"effect": "msg('This is way too heavy for me to pick it up.')"
+			"effect": "say('This is way too heavy for me to pick it up.')"
 		},
 		{
 			"label": "Use",
 			"effect": {
 				"_var": "usingItem()",
-				"self":""
+				"self":"",
+				"key": "say('Unlocked the cabinet!!!!')"
 			}
 		}
 	],

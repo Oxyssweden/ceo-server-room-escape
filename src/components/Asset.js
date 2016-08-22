@@ -9,8 +9,21 @@ const Asset = React.createClass({
 
 	mixins:[EventEmitterMixin],
 	handleClick: function(event) {
-      this.eventEmitter('emit','contextMenuOpen', event.screenX, event.screenY, this.state);
+	  if (itemInUse) {
+	    takeAction('Use', this);
+        this.eventEmitter('emit', 'usedItem', itemInUse);
+        itemInUse = null;
+      } else {
+        var pos = getClickOnScenePos(event);
+        this.eventEmitter('emit','contextMenuOpen', pos.x, pos.y, this);
+      }
 	},
+  pickUp: function() {
+    this.eventEmitter('emit', 'addToInventory', this);
+    this.setState({
+      "on_stage": false
+    });
+  },
 
   render: function(){
   	var inlineStyle = {

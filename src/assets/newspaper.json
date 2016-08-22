@@ -14,11 +14,11 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "msg('Who\"s been reading \"Drones Weekly\" in here?')"
+			"effect": "say('Who\"s been reading \"Drones Weekly\" in here?')"
 		},
 		{
 			"label": "Pick up",
-			"effect": "addToInventory(newspaper)"
+			"effect": "clickedAsset.pickUp()"
 		},
 		{
 			"label": "Use",

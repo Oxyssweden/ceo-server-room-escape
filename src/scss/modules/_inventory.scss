@@ -1,12 +1,15 @@
 #inventory {
+  cursor: pointer;
   background: #000;
   position: absolute;
   right: 0;
   bottom: 0;
+  z-index: 1000;
   .list {
     padding: 0;
     margin: 0;
     li {
+      position: relative;
       color: #fff;
       display: inline-block;
       list-style: none;
@@ -15,4 +18,12 @@
       height: 90px;
     }
   }
+}
+
+.inventory-item {
+  padding: 10%;
+  height: 80%;
+  max-width: 80%;
+  width: auto;
+  margin: auto;
 }

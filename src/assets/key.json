@@ -14,15 +14,11 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "msg('A small key, but what does it open?')"
+			"effect": "say('A small key, but what does it open?')"
 		},
 		{
 			"label": "Pick up",
-			"effect": {
-				"_var": "newspaper.state.pickedUp",
-				"true": "addToInventory(key)",
-				"false": "msg('')"
-			}
+			"effect": "clickedAsset.pickUp()"
 		},
 		{
 			"label": "Use",
@@ -33,5 +29,5 @@
 			}
 		}
 	],
-	"on_stage":false
+	"on_stage":true
 }

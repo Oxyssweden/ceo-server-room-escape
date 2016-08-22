@@ -14,11 +14,11 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "msg('A CAT6 cable.')"
+			"effect": "say('A CAT6 cable.')"
 		},
 		{
 			"label": "Pick up",
-			"effect": "addToInventory(this)"
+			"effect": "clickedAsset.pickUp()"
 		},
 		{
 			"label": "Use",
