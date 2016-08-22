@@ -14,11 +14,11 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('It is a lamp.')"
+      "effect": "say('It is a lamp.')"
     },
     {
       "label": "Pick up",
-      "effect": "msg('I don\"t want it.')"
+      "effect": "say('I don\"t want it.')"
     },
     {
       "label": "Use",

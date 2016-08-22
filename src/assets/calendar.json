@@ -14,11 +14,11 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('A calendar. August 1997.')"
+      "effect": "say('A calendar. August 1997.')"
     },
     {
       "label": "Pick up",
-      "effect": "msg('I can\"t take this down. It is a nostalgic thing.')"
+      "effect": "say('I can\"t take this down. It is a nostalgic thing.')"
     },
     {
       "label": "Use",

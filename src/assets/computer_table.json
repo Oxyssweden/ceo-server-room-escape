@@ -14,11 +14,11 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('The computer table. They have told me not to touch this.')"
+      "effect": "say('The computer table. They have told me not to touch this.')"
     },
     {
       "label": "Pick up",
-      "effect": "msg('Not supposed to touch this.')"
+      "effect": "say('Not supposed to touch this.')"
     },
     {
       "label": "Use",

@@ -14,11 +14,11 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('Never touching this copying machine again. Not since I caught our cleaning lady sitting bare naked on it.')"
+      "effect": "say('Never touching this copying machine again. Not since I caught our cleaning lady sitting bare naked on it.')"
     },
     {
       "label": "Pick up",
-      "effect": "msg('I can\"t do that.')"
+      "effect": "say('I can\"t do that.')"
     },
     {
       "label": "Use",

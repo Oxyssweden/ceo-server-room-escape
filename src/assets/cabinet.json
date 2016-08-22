@@ -15,7 +15,7 @@
 	"actions": [
 		{
 			"label": "Look",
-			"effect": "msg('A filing cabinet. Seems to be locked.')"
+			"effect": "say('A filing cabinet. Seems to be locked.')"
 		},
 		{
 			"label": "Pick up",

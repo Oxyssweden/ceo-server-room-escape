@@ -14,11 +14,11 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('The accounting covers. I prefer fiction but last year\"s edition was really exciting!')"
+      "effect": "say('The accounting covers. I prefer fiction but last year\"s edition was really exciting!')"
     },
     {
       "label": "Pick up",
-      "effect": "msg('It is enough to read them once.')"
+      "effect": "say('It is enough to read them once.')"
     },
     {
       "label": "Use",

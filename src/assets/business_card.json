@@ -14,11 +14,11 @@
   "actions": [
     {
       "label": "Look",
-      "effect": "msg('A business card belonging to the tech guy. Hmm... Maybe he could get me out of here.')"
+      "effect": "say('A business card belonging to the tech guy. Hmm... Maybe he could get me out of here.')"
     },
     {
       "label": "Pick up",
-      "effect": "msg('I don\" want it.')"
+      "effect": "say('I don\" want it.')"
     },
     {
       "label": "Use",
