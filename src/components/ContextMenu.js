@@ -37,7 +37,7 @@ const ContextMenu = React.createClass({
     });
   },
   handleClick(actionLabel, clickedAsset) {
-    takeAction(actionLabel, clickedAsset);
+    clickedAsset.takeAction(actionLabel);
     this.close();
   },
   close() {

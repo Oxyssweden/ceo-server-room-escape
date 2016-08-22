@@ -18,7 +18,7 @@
 		},
 		{
 			"label": "Pick up",
-			"effect": "clickedAsset.pickUp()"
+			"effect": "this.pickUp()"
 		},
 		{
 			"label": "Use",

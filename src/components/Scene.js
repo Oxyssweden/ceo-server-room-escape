@@ -4,34 +4,10 @@ import Background from './Background';
 import Foreground from './Foreground';
 import Me from './Me';
 import ContextMenu from './ContextMenu';
-var EventEmitterMixin = require('react-event-emitter-mixin');
 
 const Scene = React.createClass({
-  mixins:[EventEmitterMixin],
-
-  getInitialState: function(){
-    return {
-      usingItem: false
-    }
-  },
-
-  componentWillMount(){
-    this.eventEmitter('on','useItem',(itemId)=>{
-      this.setState({
-        usingItem: true,
-      });
-    });
-    this.eventEmitter('on','usedItem',(itemId)=>{
-      this.setState({
-        usingItem: false,
-      });
-    });
-  },
-
   render: function(){
-    var sceneStyle = '';
-    sceneStyle += this.state.usingItem ? ' using-item' : '';
-    return (<div id="scene" className={sceneStyle}>
+    return (<div id="scene">
       <Background file="/images/room.svg"/>
       <Asset assetId="binder_shelf"/>
       <Asset assetId="broom"/>
