@@ -48,11 +48,19 @@ const Me = React.createClass({
     });
   },
 
-  stopWalk: function() {
+  stopWalk: function(directionTop) {
     clearInterval(this.walkingInterval);
-    this.setState({
-      sprite: '/images/me/standing-down.gif',
-    });
+
+    if(directionTop >= 0) {
+      this.setState({
+        sprite: '/images/me/standing-down.gif'
+      });
+    } else {
+      this.setState({
+        sprite: '/images/me/standing-up.gif'
+      });
+    }
+
   },
 
   walk: function() {
@@ -72,7 +80,7 @@ const Me = React.createClass({
       moveLeft = directionLeft * speed;
 
     if (distance < speed) {
-      this.stopWalk();
+      this.stopWalk(directionTop);
       this.setState({
         top: destinationTop,
         left: destinationLeft,
