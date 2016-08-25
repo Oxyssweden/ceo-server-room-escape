@@ -28,6 +28,10 @@ const Asset = React.createClass({
     });
   },
 
+  discard: function() {
+    EE.eventEmitter('emit', 'removeFromInventory', this);
+  },
+  
   render: function(){
     var inlineStyle = {
       display: this.state.on_stage == true ? 'initial' : 'none',

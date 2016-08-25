@@ -19,17 +19,6 @@
     window.itemInUse = id;
   };
 
-  window.addToInventory = function(item) {
-    EE.eventEmitter('emit', 'addToInventory', item);
-    item.setState({
-      "on_stage": false
-    });
-  };
-
-  window.removeFromInventory = function(item) {
-    EE.eventEmitter('emit', 'removeFromInventory', item);
-  };
-
   window.getNumericStyleProperty = function(style, prop){
     return parseInt(style.getPropertyValue(prop),10) ;
   };

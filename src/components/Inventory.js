@@ -19,6 +19,10 @@ const Inventory = React.createClass({
         }
       )
     });
+    
+    this.eventEmitter('on','removeFromInventory',(item)=>{
+      say('todo');
+    });
   },
   render: function(){
     return (<div id="inventory">
