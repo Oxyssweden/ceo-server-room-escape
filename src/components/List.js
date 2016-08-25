@@ -11,7 +11,8 @@ const List = React.createClass({
       <ul class="list">
         {
           this.props.items.map(function(item, index) {
-            return <li onClick={that.handleClick.bind(that, item.state.id)} key={item.state.id}><img  className="inventory-item" src={item.state.sprite}/></li>
+            var sprite = item.state.inventorySprite ? item.state.inventorySprite : item.state.sprite;
+            return <li onClick={that.handleClick.bind(that, item.state.id)} key={item.state.id}><img  className="inventory-item" src={sprite}/></li>
           })
         }
       </ul>
