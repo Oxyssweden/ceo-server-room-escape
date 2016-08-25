@@ -2,12 +2,14 @@ import React from 'react';
 import Asset from './Asset';
 import Background from './Background';
 import Foreground from './Foreground';
+import DepthMap from './DepthMap';
 import Me from './Me';
 import ContextMenu from './ContextMenu';
 
 const Scene = React.createClass({
   render: function(){
-    return (<div id="scene">
+    return (<div id="scene" className="scene">
+      <DepthMap file="/images/walk_path.svg"/>
       <Background file="/images/room.svg"/>
       <Asset assetId="binder_shelf"/>
       <Asset assetId="broom"/>
@@ -29,7 +31,7 @@ const Scene = React.createClass({
       <Asset assetId="servers"/>
       <Asset assetId="waterpipe"/>
       <Asset assetId="waterpipe_fixed"/>
-      <Me/>
+      <Me posTop="600" posLeft="100"/>
       <Foreground file="/images/foreground.svg"/>
       <ContextMenu/>
     </div>);

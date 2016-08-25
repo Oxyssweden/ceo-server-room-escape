@@ -2,9 +2,16 @@
   position: absolute;
   bottom: 0;
   pointer-events: none;
+  height: 1px;
+  width: 1px;
+  display: flex;
+  justify-content: center;
 
   img {
+    flex: none;
     pointer-events: auto;
+    position: absolute;
+    bottom: 0;
   }
 }
 
@@ -13,10 +20,10 @@
   clip-path: polygon(57% 100%, 41% 99%, 17% 100%, 31% 89%, 32% 77%, 19% 73%, 20% 57%, 38% 35%, 17% 15%, 51% 2%, 79% 13%, 65% 36%, 81% 52%, 88% 71%, 71% 76%, 71% 90%, 82% 100%);
 }
 .speak-bubble {
-  bottom: 100%;
-  border-radius: 50px;
+  flex: none;
+  z-index: 10000;
+  margin-top: -420px;
   width: 300px;
-  margin-left: -75px;
   font-family: "Comic Sans MS";
   position: absolute;
   padding: 10px 20px;
@@ -25,4 +32,5 @@
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 0 0 10px black;
   font-size: 20px;
   font-weight: bold;
+  pointer-events: none;
 }

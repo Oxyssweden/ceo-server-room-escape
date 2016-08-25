@@ -3,7 +3,7 @@ import React from 'react';
 const Foreground = React.createClass({
   render: function(){
     var forgroundStyle = {
-        zIndex: 10
+        zIndex: 1000
       }
     return (<img className="foreground" src={this.props.file} style={forgroundStyle}/>);
   }

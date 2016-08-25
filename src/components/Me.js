@@ -9,15 +9,17 @@ const Me = React.createClass({
   getInitialState: function(){
     return {
       sprite: '/images/me/standing-down.gif',
-      top: 350,
-      left: 100,
-      height: 350,
-      width: 200,
-      speed: 10
+      top: parseInt(this.props.posTop),
+      left: parseInt(this.props.posLeft),
+      height: 1,
+      width: 1,
+      speed: 10,
+      scale: 1,
+      zIndex: 100
     }
   },
 
-  componentWillMount(){
+  componentWillMount() {
     this.eventEmitter('on','walkTo',(x,y)=>{
       this.stopWalk();
       this.setState({
@@ -65,6 +67,9 @@ const Me = React.createClass({
 
   walk: function() {
     var
+      depth,
+      newTop,
+      newLeft,
       top = this.state.top,
       left = this.state.left,
       destinationTop = this.state.destinationTop,
@@ -88,24 +93,31 @@ const Me = React.createClass({
       return;
     }
 
+    newTop = this.state.top + moveTop;
+    newLeft = this.state.left + moveLeft;
+    this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
+
     this.setState({
-      top: this.state.top + moveTop,
-      left: this.state.left + moveLeft,
+      top: newTop,
+      left: newLeft,
       sprite: '/images/me/walk-' + direction + '.gif',
     });
   },
   
   render: function() {
     var meStyle = {
-      top: this.state.top,
-      left: this.state.left,
-      zIndex: 4
-    },
+        top: this.state.top,
+        left: this.state.left,
+        zIndex: this.state.zIndex,
+      },
       bubbleStyle = {
         display: this.state.saying ? 'block' : 'none'
+      },
+      spriteStyle = {
+        zoom: this.state.scale
       };
     return (<div id="me" style={meStyle}>
-      <img src={this.state.sprite}/>
+      <img src={this.state.sprite} style={spriteStyle}/>
       <div style={bubbleStyle} className="speak-bubble">{this.state.saying}</div>
     </div>);
   }
