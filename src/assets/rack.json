@@ -3,8 +3,8 @@
   "sprite": "/images/rack.svg",
   "inventorySprite": "",
   "position": {
-    "x":"593",
-    "y":"481"
+    "x":"505",
+    "y":"280"
   },
   "size": {
     "h":"401",

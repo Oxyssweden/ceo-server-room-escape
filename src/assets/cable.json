@@ -3,8 +3,8 @@
 	"sprite": "/images/cable.svg",
 	"inventorySprite": "",
 	"position": {
-	  "x":"533",
-	  "y":"360"
+	  "x":"565",
+	  "y":"499"
 	},
 	"size": {
 		"h":"79",
