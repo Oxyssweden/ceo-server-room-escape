@@ -51,6 +51,7 @@ const Me = React.createClass({
   },
 
   stopWalk: function(directionTop) {
+    this.isWalking = false;
     clearInterval(this.walkingInterval);
 
     if(directionTop >= 0) {
@@ -83,6 +84,7 @@ const Me = React.createClass({
       direction = directionLeft < 0 ? 'left' : 'right',
       moveTop = directionTop * speed,
       moveLeft = directionLeft * speed;
+    this.isWalking = true;
 
     if (distance < speed) {
       this.stopWalk(directionTop);
@@ -97,11 +99,13 @@ const Me = React.createClass({
     newLeft = this.state.left + moveLeft;
     this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
 
-    this.setState({
-      top: newTop,
-      left: newLeft,
-      sprite: '/images/me/walk-' + direction + '.gif',
-    });
+    if (this.isWalking) {
+      this.setState({
+        top: newTop,
+        left: newLeft,
+        sprite: '/images/me/walk-' + direction + '.gif',
+      });
+    }
   },
   
   render: function() {

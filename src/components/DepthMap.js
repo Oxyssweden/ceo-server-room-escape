@@ -7,10 +7,14 @@ const DepthMap = React.createClass({
   componentWillMount() {
     this.eventEmitter('on','walkingTo',(asset, pos)=>{
       var depth = this.getDepth(pos);
-      asset.setState({
-        zIndex: depth * 100,
-        scale: depth
-      });
+      if (depth) {
+        asset.setState({
+          zIndex: depth * 100,
+          scale: depth
+        });
+      } else {
+        asset.stopWalk(0);
+      }
     });
   },
 
@@ -31,16 +35,14 @@ const DepthMap = React.createClass({
       .getImageData(Math.round(pos.x), Math.round(pos.y), 1, 1).data,
       depth = pixelData[1] / 255,
       range = this.props.maxScale - this.props.minScale,
-      scale = parseFloat(this.props.minScale) + parseFloat(depth * range);
-
-    return scale;
+      scale = parseFloat(this.props.minScale) + parseFloat(depth * range),
+      isBlocked = pixelData[0] == 255 && pixelData[1] != 255;
+    return isBlocked ? false : scale;
   },
 
   handleClick: function(event) {
-    var pos = getClickOnScenePos(event),
-      floor = 560;
+    var pos = getClickOnScenePos(event);
     console.log(pos);
-    if (pos.y < floor) {pos.y = floor}
     this.eventEmitter('emit','walkTo', pos.x, pos.y);
   },
 
