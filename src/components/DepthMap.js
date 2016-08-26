@@ -9,8 +9,8 @@ const DepthMap = React.createClass({
       var depth = this.getDepth(pos);
       if (depth) {
         asset.setState({
-          zIndex: depth * 100,
-          scale: depth
+          zIndex: Math.ceil(depth),
+          scale: this.getScale(depth)
         });
       } else {
         asset.stopWalk(0);
@@ -33,16 +33,18 @@ const DepthMap = React.createClass({
     }
     var pixelData = this.depthMap.getContext('2d')
       .getImageData(Math.round(pos.x), Math.round(pos.y), 1, 1).data,
-      depth = pixelData[1] / 255,
-      range = this.props.maxScale - this.props.minScale,
-      scale = parseFloat(this.props.minScale) + parseFloat(depth * range),
+      depth = pixelData[1],
       isBlocked = pixelData[0] == 255 && pixelData[1] != 255;
-    return isBlocked ? false : scale;
+    return isBlocked ? false : depth;
+  },
+
+  getScale: function(depth) {
+    var range = this.props.maxScale - this.props.minScale;
+    return parseFloat(this.props.minScale) + parseFloat(depth / 255 * range);
   },
 
   handleClick: function(event) {
     var pos = getClickOnScenePos(event);
-    console.log(pos);
     this.eventEmitter('emit','walkTo', pos.x, pos.y);
   },
 

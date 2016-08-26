@@ -35,10 +35,10 @@ const Asset = React.createClass({
   render: function(){
     var inlineStyle = {
       display: this.state.on_stage == true ? 'initial' : 'none',
-      height: this.state.size.h,
-      width: this.state.size.w,
-      top: this.state.position.y,
-      left: this.state.position.x,
+      height: this.state.size.h + 'px',
+      width: this.state.size.w + 'px',
+      top: this.state.position.y + 'px',
+      left: this.state.position.x + 'px',
       zIndex: this.state.zindex
     };
     return (<img onClick={this.handleClick} id={this.state.id} className="asset" src={this.state.sprite} style={inlineStyle}/>);
