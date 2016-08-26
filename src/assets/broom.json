@@ -1,7 +1,7 @@
 {
   "id": "broom",
   "sprite": "/images/broomstick.svg",
-  "inventorySprite": "",
+  "inventorySprite": "/images/inventory/inventory_broomstick.png",
   "position": {
     "x":"679",
     "y":"258"

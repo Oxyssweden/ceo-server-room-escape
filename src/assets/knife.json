@@ -1,7 +1,7 @@
 {
 	"id": "knife",
 	"sprite": "/images/archive_open_knife.svg",
-	"inventorySprite": "",
+	"inventorySprite": "/images/inventory/inventory_knife.png",
 	"position": {
 	  "x":"",
 	  "y":""

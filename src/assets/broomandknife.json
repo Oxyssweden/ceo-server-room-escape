@@ -1,7 +1,7 @@
 {
 	"id": "broomandknife",
 	"sprite":"",
-	"inventorySprite": "",
+	"inventorySprite": "/images/inventory/inventory_broom-knife.png",
 	"position": {
 	  "x":"",
 	  "y":""

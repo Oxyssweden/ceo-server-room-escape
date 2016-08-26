@@ -1,7 +1,7 @@
 {
 	"id": "key",
 	"sprite": "/images/key.svg",
-	"inventorySprite": "",
+	"inventorySprite": "/images/inventory/inventory_key.png",
 	"position": {
 	  "x":"81",
 	  "y":"653"
