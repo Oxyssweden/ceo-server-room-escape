@@ -20,7 +20,7 @@ const ContextMenu = React.createClass({
       }
     }
   },
-  
+
   componentWillMount(){
     this.eventEmitter('on','contextMenuOpen',(x,y,data)=>{
       this.setState({
