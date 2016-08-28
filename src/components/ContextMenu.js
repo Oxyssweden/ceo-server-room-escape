@@ -10,7 +10,7 @@ const ContextMenu = React.createClass({
 
   getInitialState: function(){
     return {
-      display: 'none',
+      open: false,
       top: 0,
       left: 0,
       asset: {
@@ -20,12 +20,13 @@ const ContextMenu = React.createClass({
       }
     }
   },
+  
   componentWillMount(){
     this.eventEmitter('on','contextMenuOpen',(x,y,data)=>{
       this.setState({
         top: y,
         left: x,
-        display:'block',
+        open: true,
         asset: data
       });
     });
@@ -36,14 +37,18 @@ const ContextMenu = React.createClass({
       this.close();
     });
   },
+
   handleClick(actionLabel, clickedAsset) {
     clickedAsset.takeAction(actionLabel);
     this.close();
   },
+
   close() {
-    this.setState({
-      display:'none'
-    });
+    if (this.state.open) {
+      this.setState({
+        open:false
+      });
+    }
   },
 
   render() {
@@ -51,7 +56,7 @@ const ContextMenu = React.createClass({
     var inlineStyle = {
       top: this.state.top,
       left: this.state.left,
-      display: this.state.display,
+      display: this.state.open ? 'initial' : 'none',
     };
     return (
       <ul className="context-menu" style={inlineStyle}>
