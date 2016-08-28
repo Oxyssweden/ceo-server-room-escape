@@ -20,13 +20,10 @@ const Me = React.createClass({
   },
 
   componentWillMount() {
-    this.eventEmitter('on','walkTo',(x,y)=>{
+    this.eventEmitter('on','walkTo',(pos, depthMap)=>{
+      var that = this;
       this.stopWalk();
-      this.setState({
-        destinationLeft: x - (this.state.width/2),
-        destinationTop: y - this.state.height
-      });
-      this.walkingInterval = setInterval(this.walk, 30);
+      this.walkingInterval = setInterval(function() { that.walk(pos, depthMap) }, 30);
     });
     this.eventEmitter('on','speak',(text)=>{
       this.stopWalk();
@@ -66,15 +63,16 @@ const Me = React.createClass({
 
   },
 
-  walk: function() {
+  walk: function(pos, depthMap) {
     var
       depth,
       newTop,
       newLeft,
+      newState,
       top = this.state.top,
       left = this.state.left,
-      destinationTop = this.state.destinationTop,
-      destinationLeft = this.state.destinationLeft,
+      destinationTop = pos.y,
+      destinationLeft = pos.x,
       distanceTop = destinationTop - top,
       distanceLeft = destinationLeft - left,
       distance = Math.sqrt(Math.pow(distanceTop,2)+Math.pow(distanceLeft,2)),
@@ -87,25 +85,32 @@ const Me = React.createClass({
     this.isWalking = true;
 
     if (distance < speed) {
+      // We have arrived!
       this.stopWalk(directionTop);
-      this.setState({
-        top: destinationTop,
-        left: destinationLeft,
-      });
-      return;
+      newTop = destinationTop;
+      newLeft = destinationLeft;
+    } else {
+      newTop = this.state.top + moveTop;
+      newLeft = this.state.left + moveLeft;
     }
 
-    newTop = this.state.top + moveTop;
-    newLeft = this.state.left + moveLeft;
-    this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
+    depth = depthMap.getDepth({x:newLeft, y:newTop});
 
-    if (this.isWalking) {
-      this.setState({
+    // Verify that position is not blocked
+    if (depth) {
+      newState = {
+        zIndex: Math.ceil(depth),
+        scale: depthMap.getScale(depth),
         top: newTop,
         left: newLeft,
-        sprite: '/images/me/walk-' + direction + '.gif',
-      });
+      };
+      if (this.isWalking) { newState.sprite = '/images/me/walk-' + direction + '.gif' }
+      this.setState(newState);
+    } else {
+      this.stopWalk(directionTop);
     }
+
+    //this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
   },
   
   render: function() {

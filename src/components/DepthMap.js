@@ -6,15 +6,7 @@ const DepthMap = React.createClass({
 
   componentWillMount() {
     this.eventEmitter('on','walkingTo',(asset, pos)=>{
-      var depth = this.getDepth(pos);
-      if (depth) {
-        asset.setState({
-          zIndex: Math.ceil(depth),
-          scale: this.getScale(depth)
-        });
-      } else {
-        asset.stopWalk(0);
-      }
+
     });
   },
 
@@ -45,7 +37,7 @@ const DepthMap = React.createClass({
 
   handleClick: function(event) {
     var pos = getClickOnScenePos(event);
-    this.eventEmitter('emit','walkTo', pos.x, pos.y);
+    this.eventEmitter('emit','walkTo', pos, this);
   },
 
   render: function(){
