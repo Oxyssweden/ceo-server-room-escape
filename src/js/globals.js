@@ -3,6 +3,10 @@
  */
 
 (function () {
+  window.depthMap = function() {
+    return window.scene.refs.depthmap || null;
+  };
+
   var EE = require('react-event-emitter-mixin');
   window.itemInUse = null;
 
