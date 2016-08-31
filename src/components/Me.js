@@ -63,7 +63,7 @@ const Me = React.createClass({
 
   },
 
-  walk: function(pos, depthMap) {
+  walk: function(dest, depthMap) {
     var
       depth,
       newTop,
@@ -71,8 +71,8 @@ const Me = React.createClass({
       newState,
       top = this.state.top,
       left = this.state.left,
-      destinationTop = pos.y,
-      destinationLeft = pos.x,
+      destinationTop = dest.y,
+      destinationLeft = dest.x,
       distanceTop = destinationTop - top,
       distanceLeft = destinationLeft - left,
       distance = Math.sqrt(Math.pow(distanceTop,2)+Math.pow(distanceLeft,2)),
