@@ -34,6 +34,9 @@ const DepthMap = React.createClass({
     // Extract green channel
     for (var i=0, row = []; i < canvasHeight; i++) {
       for (var j=1; i < len; j+=4) {
+        var depth = this.getDepth({i,j}),
+          scale = this.getScale(depth);
+        // @TODO: This is wrong.
         row.push(data[i])
       }
       greenChannel.push(row)
