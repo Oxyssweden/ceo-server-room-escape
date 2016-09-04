@@ -20,10 +20,14 @@ const Me = React.createClass({
   },
 
   componentWillMount() {
-    this.eventEmitter('on','walkTo',(pos, depthMap)=>{
-      var that = this;
+    this.eventEmitter('on','walkTo',(dest, depthMap)=>{
+      var that = this,
+        path = depthMap.findPath(
+          {x: this.state.left, y: this.state.top},
+          dest
+          );
       this.stopWalk();
-      this.walkingInterval = setInterval(function() { that.walk(pos, depthMap) }, 30);
+      this.walkingInterval = setInterval(function() { that.walk(path) }, 30);
     });
     this.eventEmitter('on','speak',(text)=>{
       this.stopWalk();
@@ -49,6 +53,7 @@ const Me = React.createClass({
 
   stopWalk: function(directionTop) {
     this.isWalking = false;
+    this.walkPathIndex = 0;
     clearInterval(this.walkingInterval);
 
     if(directionTop >= 0) {
@@ -63,27 +68,17 @@ const Me = React.createClass({
 
   },
 
-  walk: function(dest, depthMap) {
+  walk: function(path) {
     var
-      depth,
       newTop,
       newLeft,
-      newState,
       top = this.state.top,
       left = this.state.left,
-      destinationTop = dest.y,
-      destinationLeft = dest.x,
-      distanceTop = destinationTop - top,
-      distanceLeft = destinationLeft - left,
-      distance = Math.sqrt(Math.pow(distanceTop,2)+Math.pow(distanceLeft,2)),
-      speed = this.state.speed * this.state.scale,
-      directionTop = (destinationTop-top) / distance,
-      directionLeft = (destinationLeft-left) / distance,
-      direction = directionLeft < 0 ? 'left' : 'right',
-      moveTop = directionTop * speed,
-      moveLeft = directionLeft * speed;
+      speed = this.state.speed,
+      direction;
     this.isWalking = true;
 
+    //direction = directionLeft < 0 ? 'left' : 'right'
     if (distance < speed) {
       // We have arrived!
       this.stopWalk(directionTop);

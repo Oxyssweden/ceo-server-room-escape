@@ -20,6 +20,7 @@ const DepthMap = React.createClass({
       imageData,
       data,
       len,
+      greenIndex = 1,
       greenChannel = [],
       canvas = document.createElement('canvas');
     this.depthMap = canvas;
@@ -31,13 +32,20 @@ const DepthMap = React.createClass({
     data = imageData.data;
     len = data.length;
 
-    // Extract green channel
-    for (var i=0, row = []; i < canvasHeight; i++) {
-      for (var j=1; i < len; j+=4) {
-        var depth = this.getDepth({i,j}),
-          scale = this.getScale(depth);
-        // @TODO: This is wrong.
-        row.push(data[i])
+    // Green channel signifies depth (0-255) in our image.
+    // Extract green channel from imageData: [r, g, b, a, r, g, b, a, ...]
+    // into a two dimensional grid [[1,0],[1,0]] where 0 is non-traversible
+    // and a nuber above 1 signifies cost of traversing (scale of the pixel).
+    for (var i=0; i < canvasHeight; i++) {
+      var row = [];
+      for (var j = 0; j < len; j+=4) {
+        var scale = this.getScale(imageData[greenIndex]),
+          // Get a number that's never below 1
+          relativeCost = 1 / scale * this.props.maxScale;
+        row.push(relativeCost);
+        // Jump to next green pixel in imageData
+        greenIndex += 4;
+
       }
       greenChannel.push(row)
     }
