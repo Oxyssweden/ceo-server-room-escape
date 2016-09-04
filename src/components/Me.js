@@ -27,7 +27,7 @@ const Me = React.createClass({
           dest
           );
       this.stopWalk();
-      this.walkingInterval = setInterval(function() { that.walk(path) }, 30);
+      this.walkingInterval = setInterval(function() { that.walk(depthMap, path) }, 30);
     });
     this.eventEmitter('on','speak',(text)=>{
       this.stopWalk();
@@ -68,42 +68,45 @@ const Me = React.createClass({
 
   },
 
-  walk: function(path) {
+  walk: function(depthMap, path) {
     var
       newTop,
       newLeft,
       top = this.state.top,
       left = this.state.left,
-      speed = this.state.speed,
-      direction;
+      stamina = this.state.speed,
+      stop,
+      depth = 1,
+      direction,
+      pathLength = path.length;
     this.isWalking = true;
 
     //direction = directionLeft < 0 ? 'left' : 'right'
-    if (distance < speed) {
+
+    while (stamina > 0) {
+      this.walkPathIndex++;
+      stamina--;
+    }
+    if (pathLength < this.walkPathIndex) {
       // We have arrived!
       this.stopWalk(directionTop);
-      newTop = destinationTop;
-      newLeft = destinationLeft;
+      stop = path[pathLength - 1];
+      newTop = stop[0];
+      newLeft = stop[1];
     } else {
-      newTop = this.state.top + moveTop;
-      newLeft = this.state.left + moveLeft;
+      stop = path[this.walkPathIndex];
+      newTop = stop[0];
+      newLeft = stop[1];
     }
 
-    depth = depthMap.getDepth({x:newLeft, y:newTop});
-
-    // Verify that position is not blocked
-    if (depth) {
-      newState = {
-        zIndex: Math.ceil(depth),
-        scale: depthMap.getScale(depth),
-        top: newTop,
-        left: newLeft,
-      };
-      if (this.isWalking) { newState.sprite = '/images/me/walk-' + direction + '.gif' }
-      this.setState(newState);
-    } else {
-      this.stopWalk(directionTop);
-    }
+    newState = {
+      zIndex: Math.ceil(depth),
+      scale: depthMap.getScale(depth),
+      top: newTop,
+      left: newLeft,
+    };
+    if (this.isWalking) { newState.sprite = '/images/me/walk-' + direction + '.gif' }
+    this.setState(newState);
 
     //this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
   },

@@ -22,7 +22,8 @@ const DepthMap = React.createClass({
       len,
       greenIndex = 1,
       greenChannel = [],
-      canvas = document.createElement('canvas');
+      canvas = document.createElement('canvas'),
+      resolution = 10;
     this.depthMap = canvas;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
@@ -36,21 +37,21 @@ const DepthMap = React.createClass({
     // Extract green channel from imageData: [r, g, b, a, r, g, b, a, ...]
     // into a two dimensional grid [[1,0],[1,0]] where 0 is non-traversible
     // and a nuber above 1 signifies cost of traversing (scale of the pixel).
-    for (var i=0; i < canvasHeight; i++) {
+    for (var i = 0; i < canvasHeight; i += resolution) {
       var row = [];
-      for (var j = 0; j < len; j+=4) {
-        var scale = this.getScale(imageData[greenIndex]),
+      for (var j = i * canvasWidth; j < (i + 1) * canvasWidth; j+=4 * resolution) {
+        var scale = this.getScale(data[greenIndex]),
           // Get a number that's never below 1
-          relativeCost = 1 / scale * this.props.maxScale;
+          relativeCost = 1 / scale * parseFloat(this.props.maxScale);
         row.push(relativeCost);
         // Jump to next green pixel in imageData
-        greenIndex += 4;
+        greenIndex += 4 * resolution;
 
       }
       greenChannel.push(row)
     }
 
-    this.graph = new Graph(greenChannel);
+    this.graph = new window.Graph(greenChannel);
   },
 
   findPath: function(startPos, endPos) {
@@ -59,7 +60,7 @@ const DepthMap = React.createClass({
     }
     var start = this.graph.grid[startPos.x][startPos.y],
       end = this.graph.grid[endPos.x][endPos.y];
-    return astar.search(this.graph, start, end, { heuristic: astar.heuristics.diagonal });
+    return window.astar.search(this.graph, start, end, { heuristic: astar.heuristics.diagonal });
   },
 
   getDepth: function(pos) {
