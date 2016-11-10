@@ -1,5 +1,4 @@
 import React from 'react';
-import Graph from 'javascript-astar';
 import astar from 'javascript-astar';
 var EventEmitterMixin = require('react-event-emitter-mixin');
 
@@ -12,6 +11,8 @@ const DepthMap = React.createClass({
     });
   },
 
+  resolution: 10,
+
   init: function() {
     var img = this.refs.img,
       canvasWidth = img.width,
@@ -22,8 +23,7 @@ const DepthMap = React.createClass({
       len,
       greenIndex = 1,
       greenChannel = [],
-      canvas = document.createElement('canvas'),
-      resolution = 10;
+      canvas = document.createElement('canvas');
     this.depthMap = canvas;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
@@ -37,21 +37,21 @@ const DepthMap = React.createClass({
     // Extract green channel from imageData: [r, g, b, a, r, g, b, a, ...]
     // into a two dimensional grid [[1,0],[1,0]] where 0 is non-traversible
     // and a nuber above 1 signifies cost of traversing (scale of the pixel).
-    for (var i = 0; i < canvasHeight; i += resolution) {
+    for (var i = 0; i < canvasHeight; i += this.resolution) {
       var row = [];
-      for (var j = i * canvasWidth; j < (i + 1) * canvasWidth; j+=4 * resolution) {
+      for (var j = i * canvasWidth; j < (i + 1) * canvasWidth; j+=4 * this.resolution) {
         var scale = this.getScale(data[greenIndex]),
           // Get a number that's never below 1
           relativeCost = 1 / scale * parseFloat(this.props.maxScale);
         row.push(relativeCost);
         // Jump to next green pixel in imageData
-        greenIndex += 4 * resolution;
+        greenIndex += 4 * this.resolution§§ ;
 
       }
       greenChannel.push(row)
     }
 
-    this.graph = new window.Graph(greenChannel);
+    this.graph = new astar.Graph(greenChannel);
   },
 
   findPath: function(startPos, endPos) {
@@ -60,7 +60,7 @@ const DepthMap = React.createClass({
     }
     var start = this.graph.grid[startPos.x][startPos.y],
       end = this.graph.grid[endPos.x][endPos.y];
-    return window.astar.search(this.graph, start, end, { heuristic: astar.heuristics.diagonal });
+    return astar.astar.search(this.graph, start, end, { diagonal: true, heuristic: astar.astar.heuristics.diagonal });
   },
 
   getDepth: function(pos) {
