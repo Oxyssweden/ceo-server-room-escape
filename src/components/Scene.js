@@ -43,8 +43,8 @@ const Scene = React.createClass({
 
   render: function(){
     return (<div id="scene" className="scene">
-      <DepthMap ref="depthmap" minScale="0.8" maxScale="1.2" file="/images/walk_path.svg"/>
-      <Background file="/images/room.svg"/>
+      <DepthMap ref="depthmap" minScale="0.8" maxScale="1.2" file="/images/walk_path.svg" width={this.props.width} height={this.props.height} />
+      <Background file="/images/room.svg" width={this.props.width} height={this.props.height} />
       <Asset assetId="binder_shelf"/>
       <Asset assetId="broom"/>
       <Asset assetId="broomandknife"/>

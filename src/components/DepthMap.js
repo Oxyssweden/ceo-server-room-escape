@@ -102,7 +102,7 @@ const DepthMap = React.createClass({
   },
 
   render: function(){
-    return (<img onClick={this.handleClick} style={scene.sceneDimensions()} className="depthmap" ref="img" src={this.props.file}/>);
+    return (<img onClick={this.handleClick} style={{width:this.props.width, height:this.props.height}} className="depthmap" ref="img" src={this.props.file}/>);
   }
 });
 
