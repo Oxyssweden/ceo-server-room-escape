@@ -4,13 +4,6 @@ var EventEmitterMixin = require('react-event-emitter-mixin');
 
 const DepthMap = React.createClass({
   mixins:[EventEmitterMixin],
-
-  componentWillMount() {
-    this.eventEmitter('on','walkingTo',(asset, pos)=>{
-
-    });
-  },
-
   resolution: 10,
 
   init: function() {
@@ -21,7 +14,6 @@ const DepthMap = React.createClass({
       imageData,
       data,
       len,
-      greenIndex = 1,
       greenChannel = [],
       canvas = document.createElement('canvas');
     this.depthMap = canvas;
@@ -30,53 +22,78 @@ const DepthMap = React.createClass({
     ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-    data = imageData.data;
+    data = this.imageData = imageData.data;
     len = data.length;
 
     // Green channel signifies depth (0-255) in our image.
     // Extract green channel from imageData: [r, g, b, a, r, g, b, a, ...]
     // into a two dimensional grid [[1,0],[1,0]] where 0 is non-traversible
     // and a nuber above 1 signifies cost of traversing (scale of the pixel).
-    for (var i = 0; i < canvasHeight; i += this.resolution) {
+    for (var line = 0, pixelStart; line < canvasHeight; line += this.resolution) {
       var row = [];
-      for (var j = i * canvasWidth; j < (i + 1) * canvasWidth; j+=4 * this.resolution) {
-        var scale = this.getScale(data[greenIndex]),
-          // Get a number that's never below 1
-          relativeCost = 1 / scale * parseFloat(this.props.maxScale);
-        row.push(relativeCost);
-        // Jump to next green pixel in imageData
-        greenIndex += 4 * this.resolution§§ ;
-
+      for (var col = 0; col < canvasWidth; col += this.resolution) {
+        pixelStart = (line * canvasWidth + col) * 4;
+        // If red is high this tile is blocked
+        if (data[pixelStart] == 255) {
+          row.push(0);
+        } else {
+          var scale = this.getScale(data[pixelStart+1]),
+            // Get a number that's never below 1
+            weight = 1 / scale * parseFloat(this.props.maxScale);
+          row.push(weight);
+        }
       }
       greenChannel.push(row)
     }
 
-    this.graph = new astar.Graph(greenChannel);
+    this.graph = new astar.Graph(greenChannel, { diagonal: true });
   },
 
   findPath: function(startPos, endPos) {
+
     if (!this.graph) {
       this.init();
     }
-    var start = this.graph.grid[startPos.x][startPos.y],
-      end = this.graph.grid[endPos.x][endPos.y];
-    return astar.astar.search(this.graph, start, end, { diagonal: true, heuristic: astar.astar.heuristics.diagonal });
+
+    var start = this.graph.grid[this.posToGrid(startPos.y)][this.posToGrid(startPos.x)],
+      end = this.graph.grid[this.posToGrid(endPos.y)][this.posToGrid(endPos.x)];
+    return astar.astar.search(this.graph, start, end, { heuristic: astar.astar.heuristics.diagonal });
   },
 
   getDepth: function(pos) {
-    if (!this.depthMap) {
+    if (!this.imageData) {
       this.init();
     }
-    var pixelData = this.depthMap.getContext('2d')
-      .getImageData(Math.round(pos.x), Math.round(pos.y), 1, 1).data,
-      depth = pixelData[1],
-      isBlocked = pixelData[0] == 255 && pixelData[1] != 255;
-    return isBlocked ? false : depth;
+    var pixelIndex = ((pos.y * this.depthMap.width) + pos.x) * 4,
+      depth = this.imageData[pixelIndex + 1]
+    return depth;
+  },
+
+  getShadow: function(pos) {
+    if (!this.imageData) {
+      this.init();
+    }
+    var pixelIndex = ((pos.y * this.depthMap.width) + pos.x) * 4,
+      depth = this.imageData[pixelIndex + 2]
+    return depth;
   },
 
   getScale: function(depth) {
     var range = this.props.maxScale - this.props.minScale;
     return parseFloat(this.props.minScale) + parseFloat(depth / 255 * range);
+  },
+
+  getDepthFromWeight: function(weight) {
+     var depth = this.props.maxScale / weight * 255 * (this.props.maxScale - this.props.minScale) - this.props.minScale;
+    return depth;
+  },
+
+  gridToPos: function(gridPos) {
+    return this.resolution * gridPos;
+  },
+
+  posToGrid: function(pos) {
+    return Math.floor(pos / this.resolution);
   },
 
   handleClick: function(event) {
