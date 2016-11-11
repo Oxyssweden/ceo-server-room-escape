@@ -1,0 +1,15 @@
+@mixin screen($background) {
+  background: $background;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.screen {
+  @include screen(black);
+}
+
+.screen--start {
+  @include screen(#a44ead);
+}

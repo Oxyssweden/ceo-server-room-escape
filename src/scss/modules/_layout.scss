@@ -5,7 +5,11 @@ body,
   width: 100%;
 }
 
-body {margin:0}
+body {
+  margin:0;
+  @import url('https://fonts.googleapis.com/css?family=Schoolbell');
+  font-family: 'Schoolbell', cursive;
+}
 
 #container {
   position: relative;

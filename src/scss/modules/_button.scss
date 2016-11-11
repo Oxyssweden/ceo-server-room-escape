@@ -1,0 +1,54 @@
+@mixin button($background) {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  background: $background;
+  font-family: 'Schoolbell', cursive;
+  font-size: 20px;
+  cursor: pointer;
+  outline: 0;
+  transform: scale(1);
+  transition: all 0.3s;
+  color: darken($background, 40%);
+  text-shadow: 0 -1px 0 lighten($background, 30%);
+  box-shadow: 0 5px 0 darken($background, 25%);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(1);
+  }
+
+}
+
+@keyframes pulseButton {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.button {
+  @include button(orange);
+}
+
+.button--start-game {
+  @include button(#ffdf54);
+  font-size: 40px;
+  margin: 540px auto 0;
+  display: block;
+  animation: pulseButton 1s infinite;
+  &:hover {
+    animation: none;
+  }
+}
+
+.button--load-game {
+  @include button(orange);
+  margin: 30px auto 0;
+  display: block;
+}
+
+
+
