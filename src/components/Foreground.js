@@ -5,7 +5,7 @@ const Foreground = React.createClass({
 
       var viewport = getViewportDimensions();
       var parallaxState = this.props.parallaxState;
-      var maxSceneOffset = -scene.props.width + viewport.width;
+      var maxSceneOffset = -window.scene.props.width + viewport.width;
       var offset = 0;
       switch(parallaxState) {
           case 'left':

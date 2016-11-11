@@ -3,7 +3,7 @@ var EventEmitterMixin = require('react-event-emitter-mixin');
 
 const Background = React.createClass({
   render: function(){
-    return (<img className="background" style={scene.sceneDimensions()} src={this.props.file}/>);
+    return (<img className="background" style={window.scene.sceneDimensions()} src={this.props.file}/>);
   }
 });
 
