@@ -110,7 +110,7 @@ const Me = React.createClass({
       this.stopWalk(directionTop);
     }
 
-    //this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
+    this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
   },
   
   render: function() {

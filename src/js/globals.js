@@ -49,6 +49,17 @@
     return { x: x, y: y };
   };
 
+  window.getViewportDimensions = function() {
+    var w = window,
+        d = document,
+        documentElement = d.documentElement,
+        body = d.getElementsByTagName('body')[0],
+        width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+        height = w.innerHeight|| documentElement.clientHeight|| body.clientHeight;
+
+    return {width, height};
+  };
+
   window.getClickOnScenePos = function(e) {
     var stagePos = getElementPosition(document.getElementById('scene'));
     return { x: e.pageX - stagePos.x, y: e.pageY - stagePos.y };

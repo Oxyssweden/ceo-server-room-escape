@@ -11,6 +11,9 @@ const DepthMap = React.createClass({
   },
 
   initDepthMap: function() {
+
+
+
     var img = this.refs.img;
     var canvas = document.createElement('canvas');
     canvas.width = img.width;
@@ -41,7 +44,7 @@ const DepthMap = React.createClass({
   },
 
   render: function(){
-    return (<img onClick={this.handleClick} className="depthmap" ref="img" src={this.props.file}/>);
+    return (<img onClick={this.handleClick} style={scene.sceneDimensions()} className="depthmap" ref="img" src={this.props.file}/>);
   }
 });
 

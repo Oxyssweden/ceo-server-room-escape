@@ -1,6 +1,7 @@
 import React from 'react';
 import Scene from './Scene';
 import Inventory from './Inventory';
+import Viewport from './Viewport';
 var EventEmitterMixin = require('react-event-emitter-mixin');
 
 const Main = React.createClass({
@@ -30,7 +31,7 @@ const Main = React.createClass({
     classes += this.state.usingItem ? ' using-item' : '';
     return (
       <div id="container" className={classes}>
-        <Scene/>
+        <Scene width="1200" height="800"/>
         <Inventory/>
       </div>
     );

@@ -3,6 +3,7 @@ body,
 #app {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 body {margin:0}
@@ -11,6 +12,6 @@ body {margin:0}
   position: relative;
   margin: auto;
   height: 800px;
-  width: 1200px;
+  width: 100%;
   overflow: hidden;
 }

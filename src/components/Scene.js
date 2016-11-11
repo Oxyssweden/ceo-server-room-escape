@@ -6,13 +6,69 @@ import DepthMap from './DepthMap';
 import Me from './Me';
 import ContextMenu from './ContextMenu';
 
+var EventEmitterMixin = require('react-event-emitter-mixin');
+
 const Scene = React.createClass({
+  mixins:[EventEmitterMixin],
+
+  getInitialState: function(){
+    return {
+      topOffset: 0,
+      leftOffset: 0,
+      width: this.props.width,
+      height: this.props.height,
+    }
+  },
+
   componentWillMount() {
     window.scene = this;
+
+    this.eventEmitter('on','walkingTo',(char, pos)=>{
+      this.updateOffset(pos);
+    });
+  },
+
+  updateOffset: function(pos) {
+    this.setState({
+      leftOffset: getViewportDimensions().width/2 - pos.x
+    });
+  },
+
+  sceneDimensions: function() {
+    return {
+      width: this.state.width+'px',
+      height: this.state.height+'px',
+    }
   },
 
   render: function(){
-    return (<div id="scene" className="scene">
+
+    var viewport = getViewportDimensions();
+    var maxOffset = -this.props.width + viewport.width;
+    var minOffset = 0;
+    var parallaxState = 'left';
+    var style = {
+      top: 0,
+      left: 0
+    };
+
+    if(viewport.width < this.props.width) {
+      if(this.state.leftOffset < minOffset && this.state.leftOffset > maxOffset) {
+        parallaxState = 'moving';
+        var style = {
+          top: this.state.topOffset,
+          left: this.state.leftOffset
+        };
+      } else if(this.state.leftOffset < maxOffset){
+        parallaxState = 'right';
+        var style = {
+          top: 0,
+          left: maxOffset
+        }
+      }
+    }
+
+    return (<div id="scene" className="scene" style={style}>
       <DepthMap ref="depthmap" minScale="0.1" maxScale="1.2" file="/images/walk_path.svg"/>
       <Background file="/images/room.svg"/>
       <Asset assetId="binder_shelf"/>
@@ -36,7 +92,7 @@ const Scene = React.createClass({
       <Asset assetId="waterpipe"/>
       <Asset assetId="waterpipe_fixed"/>
       <Me posTop="600" posLeft="100"/>
-      <Foreground file="/images/foreground.svg"/>
+      <Foreground parallaxState={parallaxState} offset={this.state.leftOffset} parallax="0.4" file="/images/foreground.svg"/>
       <ContextMenu/>
     </div>);
   }
