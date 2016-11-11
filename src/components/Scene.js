@@ -68,7 +68,7 @@ const Scene = React.createClass({
       }
     }
 
-    return (<div id="scene" className="scene">
+    return (<div id="scene" className="scene" style={style}>
       <DepthMap ref="depthmap" minScale="0.8" maxScale="1.2" file="/images/walk_path.svg" width={this.props.width} height={this.props.height} />
       <Background file="/images/room.svg" width={this.props.width} height={this.props.height} />
       <Asset assetId="binder_shelf"/>
