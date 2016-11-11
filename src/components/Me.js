@@ -13,17 +13,23 @@ const Me = React.createClass({
       left: parseInt(this.props.posLeft),
       height: 1,
       width: 1,
-      speed: 10,
+      speed: 1,
       scale: 1,
       zIndex: 100
     }
   },
 
   componentWillMount() {
-    this.eventEmitter('on','walkTo',(pos, depthMap)=>{
-      var that = this;
+    this.eventEmitter('on','walkTo',(dest, depthMap)=>{
+      var that = this,
+        path = depthMap.findPath(
+          {x: this.state.left, y: this.state.top},
+          dest
+          );
       this.stopWalk();
-      this.walkingInterval = setInterval(function() { that.walk(pos, depthMap) }, 30);
+      if (path.length) {
+        this.walkingInterval = setInterval(function() { that.walk(depthMap, path) }, 30);
+      }
     });
     this.eventEmitter('on','speak',(text)=>{
       this.stopWalk();
@@ -49,6 +55,7 @@ const Me = React.createClass({
 
   stopWalk: function(directionTop) {
     this.isWalking = false;
+    this.walkPathIndex = 0;
     clearInterval(this.walkingInterval);
 
     if(directionTop >= 0) {
@@ -63,52 +70,50 @@ const Me = React.createClass({
 
   },
 
-  walk: function(pos, depthMap) {
+  walk: function(depthMap, path) {
     var
-      depth,
+      newState,
+      stamina = this.state.speed,
+      stop,
+      shadow,
+      depth = 1,
       newTop,
       newLeft,
-      newState,
-      top = this.state.top,
-      left = this.state.left,
-      destinationTop = pos.y,
-      destinationLeft = pos.x,
-      distanceTop = destinationTop - top,
-      distanceLeft = destinationLeft - left,
-      distance = Math.sqrt(Math.pow(distanceTop,2)+Math.pow(distanceLeft,2)),
-      speed = this.state.speed * this.state.scale,
-      directionTop = (destinationTop-top) / distance,
-      directionLeft = (destinationLeft-left) / distance,
-      direction = directionLeft < 0 ? 'left' : 'right',
-      moveTop = directionTop * speed,
-      moveLeft = directionLeft * speed;
-    this.isWalking = true;
+      direction = 'left',
+      directionTop = 0,
+      pathStop = path.length - 1;
 
-    if (distance < speed) {
+    if (!this.isWalking) {
+      this.isWalking = true;
+      this.walkPathIndex = 0;
+    }
+
+    //direction = directionLeft < 0 ? 'left' : 'right'
+
+    while (stamina > 0 && this.walkPathIndex < pathStop) {
+      this.walkPathIndex++;
+      stamina--;
+    }
+
+    stop = path[this.walkPathIndex];
+    newTop = depthMap.gridToPos(stop.x);
+    newLeft = depthMap.gridToPos(stop.y);
+    depth = depthMap.getDepth({y:newTop, x:newLeft});
+    shadow = depthMap.getShadow({y:newTop, x:newLeft}) / 255;
+    newState = {
+      zIndex: Math.ceil(depth),
+      scale: depthMap.getScale(depth),
+      top: newTop,
+      left: newLeft,
+      shadow: shadow
+    };
+
+    if (this.walkPathIndex == pathStop) {
       // We have arrived!
       this.stopWalk(directionTop);
-      newTop = destinationTop;
-      newLeft = destinationLeft;
-    } else {
-      newTop = this.state.top + moveTop;
-      newLeft = this.state.left + moveLeft;
     }
-
-    depth = depthMap.getDepth({x:newLeft, y:newTop});
-
-    // Verify that position is not blocked
-    if (depth) {
-      newState = {
-        zIndex: Math.ceil(depth),
-        scale: depthMap.getScale(depth),
-        top: newTop,
-        left: newLeft,
-      };
-      if (this.isWalking) { newState.sprite = '/images/me/walk-' + direction + '.gif' }
-      this.setState(newState);
-    } else {
-      this.stopWalk(directionTop);
-    }
+    if (this.isWalking) { newState.sprite = '/images/me/walk-' + direction + '.gif' }
+    this.setState(newState);
 
     //this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
   },
@@ -123,7 +128,8 @@ const Me = React.createClass({
         display: this.state.saying ? 'block' : 'none'
       },
       spriteStyle = {
-        zoom: this.state.scale
+        zoom: this.state.scale,
+        filter: "brightness("+this.state.shadow+")"
       };
     return (<div id="me" style={meStyle}>
       <img src={this.state.sprite} style={spriteStyle}/>
