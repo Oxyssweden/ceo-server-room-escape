@@ -33,6 +33,7 @@ const Main = React.createClass({
       <div id="container" className={classes}>
         <Scene width="1200" height="800"/>
         <Inventory/>
+        <audio id="backgroundMusic" src="/audio/circus.mp3" autoPlay="autoplay" loop="true"/>
       </div>
     );
   }

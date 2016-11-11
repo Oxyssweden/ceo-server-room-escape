@@ -42,34 +42,8 @@ const Scene = React.createClass({
   },
 
   render: function(){
-
-    var viewport = getViewportDimensions();
-    var maxOffset = -this.props.width + viewport.width;
-    var minOffset = 0;
-    var parallaxState = 'left';
-    var style = {
-      top: 0,
-      left: 0
-    };
-
-    if(viewport.width < this.props.width) {
-      if(this.state.leftOffset < minOffset && this.state.leftOffset > maxOffset) {
-        parallaxState = 'moving';
-        var style = {
-          top: this.state.topOffset,
-          left: this.state.leftOffset
-        };
-      } else if(this.state.leftOffset < maxOffset){
-        parallaxState = 'right';
-        var style = {
-          top: 0,
-          left: maxOffset
-        }
-      }
-    }
-
-    return (<div id="scene" className="scene" style={style}>
-      <DepthMap ref="depthmap" minScale="0.1" maxScale="1.2" file="/images/walk_path.svg"/>
+    return (<div id="scene" className="scene">
+      <DepthMap ref="depthmap" minScale="0.8" maxScale="1.2" file="/images/walk_path.svg"/>
       <Background file="/images/room.svg"/>
       <Asset assetId="binder_shelf"/>
       <Asset assetId="broom"/>

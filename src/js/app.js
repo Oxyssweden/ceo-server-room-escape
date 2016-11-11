@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from '../components/Main';
+import Init from '../components/Init';
 
 // Stylesheets
 require('../scss/style.scss');
 require('./globals');
 
-ReactDOM.render(<Main name="CEO"/>, document.getElementById('app'));
+ReactDOM.render(<Init name="CEO"/>, document.getElementById('app'));
