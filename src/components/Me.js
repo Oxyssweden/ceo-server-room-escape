@@ -53,21 +53,16 @@ const Me = React.createClass({
     });
   },
 
-  stopWalk: function(directionTop) {
+  stopWalk: function(spriteDirection) {
     this.isWalking = false;
     this.walkPathIndex = 0;
     clearInterval(this.walkingInterval);
 
-    if(directionTop >= 0) {
+    if (typeof spriteDirection !== 'undefined') {
       this.setState({
-        sprite: '/images/me/standing-down.gif'
-      });
-    } else {
-      this.setState({
-        sprite: '/images/me/standing-up.gif'
+        sprite: '/images/me/standing-' + spriteDirection + '.gif'
       });
     }
-
   },
 
   walk: function(depthMap, path) {
@@ -76,19 +71,17 @@ const Me = React.createClass({
       stamina = this.state.speed,
       stop,
       shadow,
-      depth = 1,
+      depth,
       newTop,
       newLeft,
-      direction = 'left',
-      directionTop = 0,
+      direction,
+      directionTop,
       pathStop = path.length - 1;
 
     if (!this.isWalking) {
       this.isWalking = true;
       this.walkPathIndex = 0;
     }
-
-    //direction = directionLeft < 0 ? 'left' : 'right'
 
     while (stamina > 0 && this.walkPathIndex < pathStop) {
       this.walkPathIndex++;
@@ -98,6 +91,8 @@ const Me = React.createClass({
     stop = path[this.walkPathIndex];
     newTop = depthMap.gridToPos(stop.x);
     newLeft = depthMap.gridToPos(stop.y);
+    direction = newLeft - this.state.left < 0 ? 'left' : 'right';
+    directionTop = newTop - this.state.top < 0 ? 'up' : 'down';
     depth = depthMap.getDepth({y:newTop, x:newLeft});
     shadow = depthMap.getShadow({y:newTop, x:newLeft}) / 255;
     newState = {
