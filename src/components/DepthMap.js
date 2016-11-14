@@ -4,7 +4,7 @@ var EventEmitterMixin = require('react-event-emitter-mixin');
 
 const DepthMap = React.createClass({
   mixins:[EventEmitterMixin],
-  resolution: 10,
+  resolution: 5,
 
   init: function() {
     var img = this.refs.img,
