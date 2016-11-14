@@ -69,9 +69,9 @@ const Scene = React.createClass({
     }
 
     return (<div id="scene" className="scene" style={style}>
-      <DepthMap ref="depthmap" minScale="0.8" maxScale="1.2" file="/images/walk_path.svg" width={this.props.width} height={this.props.height} />
-      <Background file="/images/room.svg" width={this.props.width} height={this.props.height} />
-      <Asset assetId="binder_shelf"/>
+      <DepthMap ref="depthmap" minScale="0.2" maxScale="1.2" file="/images/bg-channels.svg" width={this.props.width} height={this.props.height} />
+      <Background file="/images/bg-space.png" width={this.props.width} height={this.props.height} />
+    {/*<Asset assetId="binder_shelf"/>
       <Asset assetId="broom"/>
       <Asset assetId="broomandknife"/>
       <Asset assetId="business_card"/>
@@ -90,9 +90,9 @@ const Scene = React.createClass({
       <Asset assetId="rack"/>
       <Asset assetId="servers"/>
       <Asset assetId="waterpipe"/>
-      <Asset assetId="waterpipe_fixed"/>
-      <Me posTop="600" posLeft="100"/>
-      <Foreground parallaxState={parallaxState} offset={this.state.leftOffset} parallax="0.4" file="/images/foreground.svg"/>
+      <Asset assetId="waterpipe_fixed"/>*/}
+      <Me posTop="600" posLeft="445"/>
+    {/*<Foreground parallaxState={parallaxState} offset={this.state.leftOffset} parallax="0.4" file="/images/foreground.svg"/>*/}
       <ContextMenu/>
     </div>);
   }
