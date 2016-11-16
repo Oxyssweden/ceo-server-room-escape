@@ -1,7 +1,6 @@
 import React from 'react';
-import Scene from './Scene';
+import ServerRoom from '../scenes/server_room/ServerRoom';
 import Inventory from './Inventory';
-import Viewport from './Viewport';
 var EventEmitterMixin = require('react-event-emitter-mixin');
 
 const Main = React.createClass({
@@ -31,7 +30,7 @@ const Main = React.createClass({
     classes += this.state.usingItem ? ' using-item' : '';
     return (
       <div id="container" className={classes}>
-        <Scene width="1200" height="800"/>
+        <ServerRoom width="1200" height="800"/>
         <Inventory/>
         <audio id="backgroundMusic" src="/audio/circus.mp3" autoPlay="autoplay" loop="true"/>
       </div>
