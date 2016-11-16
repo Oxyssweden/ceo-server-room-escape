@@ -1,38 +1,58 @@
 import React from 'react';
-import ActionableMixin from '../mixins/ActionableMixin';
+
 var EventEmitterMixin = require('react-event-emitter-mixin');
 
-const Asset = React.createClass({
-  mixins:[EventEmitterMixin, ActionableMixin],
+class Asset extends React.Component {
+  constructor(props) {
+    super(props);
+    this.EE = EventEmitterMixin;
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  getInitialState: function() {
-    var id = this.props.assetId;
-    return require('json!../assets/'+id);
-  },
-
-  handleClick: function(event) {
+  handleClick(event) {
     if (itemInUse) {
       this.takeAction('Use');
-      this.eventEmitter('emit', 'usedItem', itemInUse);
+      this.EE.eventEmitter('emit', 'usedItem', itemInUse);
       itemInUse = null;
     } else {
       var pos = getClickOnScenePos(event);
-      this.eventEmitter('emit','contextMenuOpen', pos.x, pos.y, this);
+      this.EE.eventEmitter('emit','contextMenuOpen', pos.x, pos.y, this);
     }
-  },
+  };
 
-  pickUp: function() {
-    this.eventEmitter('emit', 'addToInventory', this);
+  pickUp() {
+    this.EE.eventEmitter('emit', 'addToInventory', this);
     this.setState({
       "on_stage": false
     });
-  },
+  };
 
-  discard: function() {
-    EE.eventEmitter('emit', 'removeFromInventory', this);
-  },
-  
-  render: function(){
+  discard() {
+    this.EE.eventEmitter('emit', 'removeFromInventory', this);
+  };
+
+  takeAction(actionLabel) {
+    var lookup = {};
+    for (var i = 0, len = this.state.actions.length; i < len; i++) {
+      lookup[this.state.actions[i].label] = this.state.actions[i].effect;
+    }
+    this.evalAction(lookup[actionLabel]);
+  };
+
+  evalAction(effect) {
+    if (typeof effect === 'object') {
+      var key = eval(effect._var);
+      if (typeof(effect[key]) != undefined) {
+        this.evalAction(effect[key]);
+      } else {
+        this.evalAction(effect['default']);
+      }
+    } else {
+      eval(effect);
+    }
+  };
+
+  render(){
     var inlineStyle = {
       display: this.state.on_stage == true ? 'initial' : 'none',
       height: this.state.size.h + 'px',
@@ -43,6 +63,6 @@ const Asset = React.createClass({
     };
     return (<img onClick={this.handleClick} id={this.state.id} className="asset" src={this.state.sprite} style={inlineStyle}/>);
   }
-});
+}
 
 export default Asset;
