@@ -9,8 +9,8 @@ const Me = React.createClass({
   getInitialState: function(){
     return {
       sprite: '/images/me/standing-down.gif',
-      top: parseInt(this.props.posTop),
-      left: parseInt(this.props.posLeft),
+      top: parseInt(this.props.y),
+      left: parseInt(this.props.x),
       height: 1,
       width: 1,
       speed: 1,

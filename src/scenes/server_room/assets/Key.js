@@ -4,39 +4,25 @@ import Asset from '../../../components/Asset';
 class Key extends Asset {
   constructor(props) {
     super(props);
-    this.state = {
-      "id": "key",
-      "sprite": "/images/key.svg",
-      "inventorySprite": "/images/inventory/inventory_key.png",
-      "position": {
-        "x":"81",
-        "y":"653"
+    this.state.actions = [
+      {
+        "label": "Look",
+        "effect": "say('A small key, but what does it open?')"
       },
-      "size": {
-        "h":"31",
-        "w":"42"
+      {
+        "label": "Pick up",
+        "effect": "this.pickUp()"
       },
-      "zindex": 1,
-      "actions": [
-        {
-          "label": "Look",
-          "effect": "say('A small key, but what does it open?')"
-        },
-        {
-          "label": "Pick up",
-          "effect": "this.pickUp()"
-        },
-        {
-          "label": "Use",
-          "effect": {
-            "_var": "usingItem()",
-            "self":"",
-            "cabinet": "openCabinet()"
-          }
+      {
+        "label": "Use",
+        "effect": {
+          "_var": "usingItem()",
+          "self":"",
+          "cabinet": "openCabinet()"
         }
-      ],
-      "on_stage":true
-    };
+      }
+    ];
+    this.state.inventorySprite = "/images/inventory/inventory_key.png";
   }
 }
 

@@ -7,6 +7,16 @@ class Asset extends React.Component {
     super(props);
     this.EE = EventEmitterMixin;
     this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      "position": {
+        "x": props.x,
+        "y": props.y
+      },
+      "zindex": props.z,
+      "sprite": props.src,
+      "width": props.width,
+      "height": props.height,
+    };
   }
 
   handleClick(event) {
@@ -52,16 +62,23 @@ class Asset extends React.Component {
     }
   };
 
-  render(){
-    var inlineStyle = {
-      display: this.state.on_stage == true ? 'initial' : 'none',
-      height: this.state.size.h + 'px',
-      width: this.state.size.w + 'px',
+  getStyle() {
+    return {
+      display: this.state.on_stage == false ? 'none' : 'initial',
+      height: isNaN(this.state.height) ? 'auto' : this.state.height + 'px',
+      width: isNaN(this.state.width) ? 'auto' : this.state.width + 'px',
       top: this.state.position.y + 'px',
       left: this.state.position.x + 'px',
       zIndex: this.state.zindex
     };
-    return (<img onClick={this.handleClick} id={this.state.id} className="asset" src={this.state.sprite} style={inlineStyle}/>);
+  }
+
+  render(){
+    return (<img onClick={this.handleClick}
+                 id={this.props.id}
+                 className="asset"
+                 src={this.state.sprite}
+                 style={this.getStyle()}/>);
   }
 }
 
