@@ -58,11 +58,13 @@ const ContextMenu = React.createClass({
       left: this.state.left,
       display: this.state.open ? 'initial' : 'none',
     };
+    this.state.asset.actions = this.state.asset.actions || {};
     return (
       <ul className="context-menu" style={inlineStyle}>
         {
-          this.state.asset.state.actions.map(function(item) {
-            return <li key={item.label} onClick={that.handleClick.bind(that, item.label, that.state.asset)}>{item.label}</li>
+          Object.keys(this.state.asset.actions).map(function(key) {
+            var item = that.state.asset.actions[key];
+            return <li key={key} onClick={that.handleClick.bind(that, key, that.state.asset)}>{key}</li>
           })
         }
       </ul>

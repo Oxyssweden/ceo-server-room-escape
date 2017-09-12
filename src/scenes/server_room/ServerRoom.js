@@ -1,14 +1,10 @@
 import React from 'react';
 import Broom from './assets/Broom';
-import BroomAndKnife from './assets/BroomAndKnife';
-import BusinessCard from './assets/BusinessCard';
 import Cabinet from './assets/Cabinet';
 import Cable from './assets/Cable';
 import Key from './assets/Key';
 import Knife from './assets/Knife';
-import KnifeBroom from './assets/KnifeBroom';
 import Newspaper from './assets/Newspaper';
-import WaterpipeFixed from './assets/WaterpipeFixed';
 import Background from '../../components/Background';
 import Foreground from '../../components/Foreground';
 import DepthMap from '../../components/DepthMap';
@@ -27,15 +23,22 @@ class ServerRoom extends Scene {
                "Look": "It´s leaking. That can´t be safe",
                "Pick up": "What am I supposed to do? Rip it out of the wall?"
              }}/>
-      <WaterpipeFixed x="511" y="7" width="58" src="/images/pipe_fixed.svg"/>
+      <Asset x="511" y="7" width="58" src="/images/pipe_fixed.svg"
+             actions={{
+               "Look": "Someone did a quickfix on that leak. That can´t be safe!",
+               "Pick up": "I can´t reach it."
+             }}/>
       <Asset x="214" y="197" width="130" src="/images/binder_shelf.svg"
              actions={{
                "Look": "The accounting covers. I prefer fiction but last year´s edition was really exciting!",
                "Pick up": "It is enough to read them once."
              }}/>
       <Broom x="679" y="258" width="84" src="/images/broomstick.svg"/>
-      <BroomAndKnife/>
-      <BusinessCard x="780" y="608" width="69" src="/images/business_card.svg"/>
+      <Asset x="780" y="608" width="69" src="/images/business_card.svg"
+             actions={{
+               "Look": "A business card belonging to the tech guy. Hmm... Maybe he could get me out of here.",
+               "Pick up": "I don´t want it."
+             }}/>
       <Cabinet x="1045" y="341" width="124" src="/images/archive.svg"/>
       <Asset x="908" y="222" width="85" src="/images/calendar.svg"
              actions={{
@@ -54,7 +57,6 @@ class ServerRoom extends Scene {
              }}/>
       <Key x="81" y="653" width="42" src="/images/key.svg"/>
       <Knife/>
-      <KnifeBroom/>
       <Asset x="713" y="20" width="262" src="/images/lamp.svg"
              actions={{
                "Look": "It is a lamp.",

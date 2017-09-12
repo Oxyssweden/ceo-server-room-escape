@@ -4,24 +4,14 @@ import Asset from '../../../components/Asset';
 class Key extends Asset {
   constructor(props) {
     super(props);
-    this.state.actions = [
-      {
-        "label": "Look",
-        "effect": "say('A small key, but what does it open?')"
-      },
-      {
-        "label": "Pick up",
-        "effect": "this.pickUp()"
-      },
-      {
-        "label": "Use",
-        "effect": {
-          "_var": "usingItem()",
-          "self":"",
-          "cabinet": "openCabinet()"
-        }
-      }
-    ];
+    var self = this;
+    this.actions = {
+      "Look": 'A small key, but what does it open?',
+      "Pick up"() { self.pickUp(); },
+      "Use"() {
+          if (usingItem() == 'cabinet') { alert('Open cabinet'); }
+        },
+      };
     this.state.inventorySprite = "/images/inventory/inventory_key.png";
   }
 }
