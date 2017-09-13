@@ -26,6 +26,8 @@ EventQueue.prototype.add = function (callbackFn, args, duration, delay) {
   return this;
 };
 
+EventQueue.prototype.q = EventQueue.prototype.add;
+
 EventQueue.prototype.play = function () {
   var next = 0, that = this;
   this.queue.map(function(event, index) {
