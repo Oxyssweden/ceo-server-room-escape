@@ -3,7 +3,7 @@ import React from 'react';
 const Foreground = React.createClass({
   render: function(){
 
-      var viewport = getViewportDimensions();
+      var viewport = game.util.getViewportDimensions();
       var parallaxState = this.props.parallaxState;
       var maxSceneOffset = -window.scene.props.width + viewport.width;
       var offset = 0;

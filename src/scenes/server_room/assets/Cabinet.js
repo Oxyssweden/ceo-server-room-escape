@@ -7,7 +7,7 @@ class Cabinet extends Asset {
     this.actions = {
       "Look": 'A filing cabinet. Seems to be locked.',
       "Pick up": 'This is way too heavy for me to pick it up.',
-      "Use"() {say('Unlocked the cabinet!!!!');}
+      "Use"() { game.say('Unlocked the cabinet!!!!'); }
     };
   }
 }

@@ -2,8 +2,8 @@ import React from 'react';
 
 const List = React.createClass({
   handleClick: function(id, event) {
-    useItem(id);
-    say('Use '+id+' on what?');
+    game.useItem(id);
+    game.say('Use '+id+' on what?');
   },
   render: function(){
     var that = this;

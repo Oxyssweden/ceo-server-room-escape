@@ -23,7 +23,7 @@ const Scene = React.createClass({
 
   updateOffset: function(pos) {
     this.setState({
-      leftOffset: getViewportDimensions().width/2 - pos.x
+      leftOffset: game.util.getViewportDimensions().width/2 - pos.x
     });
   },
 
@@ -35,7 +35,7 @@ const Scene = React.createClass({
   },
 
   getStyle: function() {
-    var viewport = getViewportDimensions();
+    var viewport = game.util.getViewportDimensions();
     var maxOffset = -this.props.width + viewport.width;
     var minOffset = 0;
 
@@ -60,7 +60,7 @@ const Scene = React.createClass({
   },
 
   parallaxState: function() {
-    var viewport = getViewportDimensions();
+    var viewport = game.util.getViewportDimensions();
     var maxOffset = -this.props.width + viewport.width;
     var minOffset = 0;
     if(viewport.width < this.props.width) {

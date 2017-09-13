@@ -9,7 +9,7 @@ class Key extends Asset {
       "Look": 'A small key, but what does it open?',
       "Pick up"() { self.pickUp(); },
       "Use"() {
-          if (usingItem() == 'cabinet') { alert('Open cabinet'); }
+          if (game.usingItem() == 'cabinet') { alert('Open cabinet'); }
         },
       };
     this.state.inventorySprite = "/images/inventory/inventory_key.png";

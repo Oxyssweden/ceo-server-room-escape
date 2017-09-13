@@ -21,7 +21,7 @@ const Inventory = React.createClass({
     });
     
     this.eventEmitter('on','removeFromInventory',(item)=>{
-      say('todo');
+      game.say('todo');
     });
   },
   render: function(){

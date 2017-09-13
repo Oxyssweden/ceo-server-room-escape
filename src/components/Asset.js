@@ -21,12 +21,12 @@ class Asset extends React.Component {
   }
 
   handleClick(event) {
-    if (itemInUse) {
+    if (game.itemInUse) {
       this.takeAction('Use');
-      this.EE.eventEmitter('emit', 'usedItem', itemInUse);
-      itemInUse = null;
+      this.EE.eventEmitter('emit', 'usedItem', game.itemInUse);
+      game.itemInUse = null;
     } else {
-      var pos = getClickOnScenePos(event);
+      var pos = game.util.getClickOnScenePos(event);
       this.EE.eventEmitter('emit','contextMenuOpen', pos.x, pos.y, this);
     }
   };
@@ -45,7 +45,7 @@ class Asset extends React.Component {
   takeAction(actionLabel) {
     var effect = this.actions[actionLabel];
     if (typeof effect === 'function') { this.actions[actionLabel]();}
-    else if (typeof effect === 'string') { say(effect);}
+    else if (typeof effect === 'string') { game.say(effect);}
   };
 
   getStyle() {

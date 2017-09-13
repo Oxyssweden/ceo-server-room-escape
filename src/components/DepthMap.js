@@ -97,7 +97,7 @@ const DepthMap = React.createClass({
   },
 
   handleClick: function(event) {
-    var pos = getClickOnScenePos(event);
+    var pos = game.util.getClickOnScenePos(event);
     this.eventEmitter('emit','walkTo', pos, this);
   },
 

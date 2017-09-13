@@ -48,7 +48,7 @@ EventQueue.prototype.stop = function () {
 
 EventQueue.prototype.say = function (text, duration, delay) {
   duration = duration || (text.length / 10) + .3;
-  this.q(say, text, duration, delay);
+  this.q(game.say, text, duration, delay);
   return this;
 };
 
