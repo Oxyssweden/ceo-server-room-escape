@@ -4,6 +4,7 @@
  */
 function EventQueue() {
   this.queue = [];
+  this.next = 0;
 }
 
 /**
@@ -14,31 +15,26 @@ function EventQueue() {
  * @param duration {null|int}
  * @returns {EventQueue}
  */
-EventQueue.prototype.add = function (callbackFn, args, duration, delay) {
+EventQueue.prototype.q = function (callbackFn, args, duration, delay) {
+  var that = this;
   delay = delay || 0;
+  this.next += delay;
+  if (!Array.isArray(args)) { args = [args] }
+
   this.queue.push({
-    action: callbackFn,
+    callbackFn: callbackFn,
     args: args,
     delay: delay,
     duration: duration,
-  });
-
-  return this;
-};
-
-EventQueue.prototype.q = EventQueue.prototype.add;
-
-EventQueue.prototype.play = function () {
-  var next = 0, that = this;
-  this.queue.map(function(event, index) {
-    next += event.delay;
-    that.queue[index].timeout = window.setTimeout(
+    timeout: window.setTimeout(
       function() {
-        that.queue[index].action(event.args);
-      }, next * 1000
-    );
-    next += event.duration;
+        callbackFn.apply(that, args);
+      }, this.next * 1000
+    )
   });
+
+  this.next += duration;
+
   return this;
 };
 
@@ -52,8 +48,12 @@ EventQueue.prototype.stop = function () {
 
 EventQueue.prototype.say = function (text, duration, delay) {
   duration = duration || (text.length / 10) + .3;
-  this.add(say, text, duration, delay);
+  this.q(say, text, duration, delay);
   return this;
 };
 
-window.Q = function() { return new EventQueue() };
+window.q = function(callbackFn, args, duration, delay) {
+  var queue = new EventQueue();
+  if (!callbackFn) return queue;
+  return queue.q(callbackFn, args, duration, delay)
+};

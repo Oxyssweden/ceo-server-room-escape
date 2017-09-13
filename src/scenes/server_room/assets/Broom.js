@@ -5,7 +5,7 @@ class Broom extends Asset {
   constructor(props) {
     super(props);
     this.actions = {
-      "Look"() {Q().say('It´s a broom.').say("Or is it's a queue?").play();},
+      "Look"() {q().say('It´s a broom.').say("Or is it's a queue?");},
       "Pick up": 'This is no time for cleaning!',
   };
   }
