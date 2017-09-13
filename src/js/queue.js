@@ -2,10 +2,12 @@
  *
  * @constructor
  */
-function EventQueue() {
+'use strict';
+
+var EventQueue = function() {
   this.queue = [];
   this.next = 0;
-}
+};
 
 /**
  * Adding a new action to the queue
@@ -52,8 +54,10 @@ EventQueue.prototype.say = function (text, duration, delay) {
   return this;
 };
 
-window.q = function(callbackFn, args, duration, delay) {
+var q = function(callbackFn, args, duration, delay) {
   var queue = new EventQueue();
   if (!callbackFn) return queue;
   return queue.q(callbackFn, args, duration, delay)
 };
+
+module.exports = q;
