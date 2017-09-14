@@ -34,7 +34,7 @@ window.setInterval(function () {
 }, 6000);
 
 document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
+  if (preventDebugging) { e.preventDefault(); }
   scoldCheaters();
 });
 
