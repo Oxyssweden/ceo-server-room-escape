@@ -1,13 +1,16 @@
 import React from 'react';
+import EventEmitter from 'react-event-emitter-mixin';
+
 var EventEmitterMixin = require('react-event-emitter-mixin');
 
-const Me = React.createClass({
-  timer: null,
-  walkingInterval: null,
-  mixins:[EventEmitterMixin],
-
-  getInitialState: function(){
-    return {
+class Character extends React.Component {
+  constructor(props) {
+    super(props);
+    this.EE = EventEmitterMixin;
+    this.timer = null;
+    this.walkingInterval = null;
+    this.eventEmitter = this.EE.eventEmitter;
+    this.state = {
       sprite: '/images/me/standing-down.gif',
       top: parseInt(this.props.y),
       left: parseInt(this.props.x),
@@ -16,10 +19,12 @@ const Me = React.createClass({
       speed: 1,
       scale: 1,
       zIndex: 100
-    }
-  },
+    };
+    this.actions = props.actions;
+  }
 
   componentWillMount() {
+    this.EE.componentWillMount();
     this.eventEmitter('on','walkTo',(dest, depthMap)=>{
       var that = this,
         path = depthMap.findPath(
@@ -39,21 +44,25 @@ const Me = React.createClass({
       });
       this.timer = this.setTimer(this.stopSpeak, text.length / 10 * 1000);
     });
-  },
+  }
+
+  componentWillUnmount() {
+    this.EE.componentWillUnmount();
+  }
 
   setTimer(func, millis) {
     clearTimeout(this.timer);
     setTimeout(func, millis);
-  },
+  }
 
-  stopSpeak: function() {
+  stopSpeak() {
     this.setState({
       sprite: '/images/me/standing-down.gif',
       saying: false,
     });
-  },
+  }
 
-  stopWalk: function(spriteDirection) {
+  stopWalk(spriteDirection) {
     this.isWalking = false;
     this.walkPathIndex = 0;
     clearInterval(this.walkingInterval);
@@ -63,9 +72,9 @@ const Me = React.createClass({
         sprite: '/images/me/standing-' + spriteDirection + '.gif'
       });
     }
-  },
+  }
 
-  walk: function(depthMap, path) {
+  walk(depthMap, path) {
     var
       newState,
       stamina = this.state.speed,
@@ -111,9 +120,9 @@ const Me = React.createClass({
     this.setState(newState);
 
     this.eventEmitter('emit','walkingTo', this, {x:newLeft, y:newTop});
-  },
+  }
   
-  render: function() {
+  render() {
     var meStyle = {
         top: this.state.top,
         left: this.state.left,
@@ -131,6 +140,6 @@ const Me = React.createClass({
       <div style={bubbleStyle} className="speak-bubble">{this.state.saying}</div>
     </div>);
   }
-});
+}
 
-export default Me;
+export default Character;

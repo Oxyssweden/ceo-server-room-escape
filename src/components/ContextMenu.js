@@ -30,7 +30,7 @@ const ContextMenu = React.createClass({
         asset: data
       });
     });
-    this.eventEmitter('on','speak',()=>{
+    this.eventEmitter('on','me-speak',()=>{
       this.close();
     });
     this.eventEmitter('on','walkTo',()=>{

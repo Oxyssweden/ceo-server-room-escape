@@ -14,8 +14,9 @@ var Game = {
     return scene.refs.depthmap || null;
   },
 
-  say: function(text) {
-    game.event('emit', 'speak', text);
+  say: function(text, who) {
+    who = who || 'me';
+    game.event('emit', who + '-speak', text);
   },
 
   usingItem: function() {

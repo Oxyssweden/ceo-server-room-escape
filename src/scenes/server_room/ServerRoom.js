@@ -9,6 +9,7 @@ import Background from '../../components/Background';
 import Foreground from '../../components/Foreground';
 import DepthMap from '../../components/DepthMap';
 import Me from '../../components/Me';
+import Character from '../../components/Character';
 import ContextMenu from '../../components/ContextMenu';
 import Scene from '../../components/Scene';
 import Asset from '../../components/Asset';
@@ -53,7 +54,7 @@ class ServerRoom extends Scene {
       <Asset x="864" y="334" width="147" src="/images/copying_machine.svg"
              actions={{
                "Look": "Never touching this copying machine again. Not since I caught our cleaning lady sitting bare naked on it.",
-               "Pick up": "I can´t do that."
+               "Pick up": "I can´t do that.",
              }}/>
       <Key x="81" y="653" width="42" src="/images/key.svg"/>
       <Knife/>
@@ -85,7 +86,7 @@ class ServerRoom extends Scene {
                "Pick up": "I cant pick up that!"
              }}/>
       <Me y="600" x="100"/>
-      
+
       <Foreground parallaxState={this.parallaxState()} offset={this.state.leftOffset} parallax="0.4" file="/images/foreground.svg"/>
       <ContextMenu/>
     </div>);
