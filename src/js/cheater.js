@@ -1,5 +1,5 @@
 
-require('devtools-detect');
+var devtools_detect = require('devtools-detect');
 
 var stopCheatersIsRunning = 0;
 
@@ -30,7 +30,7 @@ if (preventDebugging) {
 }
 
 window.setInterval(function () {
-  if (window.devtools.open) { scoldCheaters(); };
+  if (devtools_detect.open) { scoldCheaters(); };
 }, 6000);
 
 document.addEventListener('contextmenu', function(e) {
