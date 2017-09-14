@@ -6,6 +6,6 @@ import Init from '../components/Init';
 require('../scss/style.scss');
 window.game = require('./Game');
 window.q = require('./queue');
-window.q = require('./cheater');
+require('./cheater');
 
 ReactDOM.render(<Init name="CEO"/>, document.getElementById('app'));

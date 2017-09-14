@@ -85,6 +85,7 @@ class ServerRoom extends Scene {
                "Pick up": "I cant pick up that!"
              }}/>
       <Me y="600" x="100"/>
+      
       <Foreground parallaxState={this.parallaxState()} offset={this.state.leftOffset} parallax="0.4" file="/images/foreground.svg"/>
       <ContextMenu/>
     </div>);

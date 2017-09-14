@@ -31,7 +31,7 @@ if (preventDebugging) {
 
 window.setInterval(function () {
   if (devtools_detect.open) { scoldCheaters(); };
-}, 6000);
+}, 10000);
 
 document.addEventListener('contextmenu', function(e) {
   if (preventDebugging) { e.preventDefault(); }
