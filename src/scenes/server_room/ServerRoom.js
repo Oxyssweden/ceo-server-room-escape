@@ -74,12 +74,12 @@ class ServerRoom extends Scene {
                "Look": "A broken paper shredder.",
                "Pick up": "I don´t want it."
              }}/>
-      <Asset x="505" y="280" width="175" src="/images/rack.svg"
+      <Asset z="140" x="505" y="280" width="175" src="/images/rack.svg"
              actions={{
                "Look": "It´s a server rack."
              }}/>
-      <Cable x="565" y="499" width="62" src="/images/cable.svg"/>
-      <Asset x="515" y="298" width="155" src="/images/servers.svg"
+      <Cable z="140" x="565" y="499" width="62" src="/images/cable.svg"/>
+      <Asset z="140" x="515" y="298" width="155" src="/images/servers.svg"
              actions={{
                "Look": "I think these are servers. Better not mess around with it.",
                "Use": "I think these are servers. Better not mess around with it.",
